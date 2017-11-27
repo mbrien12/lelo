@@ -1,9 +1,14 @@
 // Specific CSS for your home-page
+// ----------------- SOCIAL PROOF ----------------------
+
+.benefits {
+
+}
 
 // ----------------- FEATURE BANNER ----------------------
 
-.wrapper-green {
-  background-color: $green;
+.wrapper-white {
+  background-color: white;
   color: black;
 }
 
@@ -38,7 +43,7 @@ width: 100px;
 
 // ----------------- SOCIAL PROOF ----------------------
 
-.social-proof {
+.social-proof, .benefits {
   margin: 80px;
 
 }
