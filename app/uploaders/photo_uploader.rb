@@ -1,7 +1,10 @@
 # encoding: utf-8
 
 class PhotoUploader < CarrierWave::Uploader::Base
-include Cloudinary::CarrierWave
+  include Cloudinary::CarrierWave
+  # include CarrierWave::MiniMagick
+
+  # process resize_to_fill: [300, 300]
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url
@@ -19,9 +22,13 @@ include Cloudinary::CarrierWave
   # end
 
   # Create different versions of your uploaded files:
-  # version :thumb do
-  #   process :resize_to_fit => [50, 50]
-  # end
+  version :thumb do
+    process :resize_to_fit => [50, 50]
+  end
+
+  version :profile do
+    process :resize_to_fit => [300, 300]
+  end
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
