@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @skill.name %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @skill.price %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @skill.description %>
+</p>
+
+<p>
+  <strong>Teacher:</strong>
+  <%= @skill.teacher_id %>
+</p>
+
+<p>
+  <strong>Availability:</strong>
+  <%= @skill.availability %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @skill.category %>
+</p>
+
+<p>
+  <strong>Skill rating:</strong>
+  <%= @skill.skill_rating %>
+</p>
+
+<%= link_to 'Edit', edit_skill_path(@skill) %> |
+<%= link_to 'Back', skills_path %>
