@@ -75,3 +75,20 @@
   border-left: 1px solid #E6E6E6;
   border-top: 1px solid #E6E6E6;
 }
+
+/* --------------------------Custome styles ---------------------------- */
+
+.logo-text {
+  color: black;
+  font-weight: bolder;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.logo-text-tagline {
+  font-weight: lighter;
+  color: black;
+}
+
+.logo-text:hover,
