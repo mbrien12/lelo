@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  skill: one
+  student_id: 1
+  name: MyString
+  description: MyString
+  completed: false
+  paid: false
+  price: MyString
+
+two:
+  skill: two
+  student_id: 1
+  name: MyString
+  description: MyString
+  completed: false
+  paid: false
+  price: MyString
