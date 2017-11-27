@@ -2,8 +2,17 @@
 
 // ----------------- FEATURE BANNER ----------------------
 
+.wrapper-green {
+  background-color: $green;
+  color: black;
+}
+
 .feature-heading {
-  margin: 30px 0;
+  margin: 50px 0;
+}
+
+.feature-container {
+
 }
 
 .feature-content {
@@ -24,5 +33,15 @@ width: 100px;
   font-size: 18px;
   width: 200px;
   margin-top: 20px;
+  margin-bottom: 50px;
 }
 
+// ----------------- SOCIAL PROOF ----------------------
+
+.social-proof {
+  margin: 80px;
+
+}
+.customer-quote {
+  max-width: 250px;
+}
