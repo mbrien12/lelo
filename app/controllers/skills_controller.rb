@@ -4,7 +4,14 @@ class SkillsController < ApplicationController
   # GET /skills
   # GET /skills.json
   def index
-    @skills = Skill.all
+
+    @skills = Skill.joins(:teacher).all
+
+    @mapped_skills = @skills.where.not(users: {latitude: nil, longitude: nil})
+    @hash = Gmaps4rails.build_markers(@mapped_skills) do |skill, marker|
+      marker.lat skill.teacher.latitude
+      marker.lng skill.teacher.longitude
+    end
   end
 
   # GET /skills/1
