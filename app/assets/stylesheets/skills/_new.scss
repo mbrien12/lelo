@@ -1,0 +1,39 @@
+.new-skill-header{
+    margin: auto;
+    width: 480px;
+    padding: 10px;
+  h2{
+    font-size: 23px;
+    font-family: $headers-font;
+    font-weight: lighter;
+  }
+}
+
+.new-skill-container{
+  width: 400px;
+  padding-bottom: 2px;
+  margin: 0 auto;
+}
+
+.new-skill-form-inputs{
+  input, textarea{
+    font-family: $body-font;
+    font-weight: lighter;
+    font-size: 15px;
+  }
+  label{
+  font-family: $body-font;
+  font-weight: lighter;
+  }
+}
+
+#new-skill-btn{
+  margin-left: 133px;
+}
+
+#new-skill-back{
+  color: black;
+  font-family: $body-font;
+  font-weight: lighter;
+  margin: 175px;
+}

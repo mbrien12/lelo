@@ -6,6 +6,8 @@ class User < ApplicationRecord
          :omniauthable, omniauth_providers: [:facebook]
   has_many :skills, foreign_key: :teacher_id
   has_many :lessons, foreign_key: :student_id
+  has_many :messages, foreign_key: :sender_id
+  has_many :messages, foreign_key: :receiver_id
   mount_uploader :photo, PhotoUploader
   geocoded_by :location
   after_validation :get_address, if: :location_changed?
@@ -31,6 +33,7 @@ class User < ApplicationRecord
     return user
   end
 
+
     def get_address
     google = "https://maps.googleapis.com/maps/api/geocode/json?address="
     key = ENV['GOOGLE_API_SERVER_KEY']
@@ -45,6 +48,10 @@ class User < ApplicationRecord
         self.longitude = address_hash["geometry"]["location"]["lng"]
       end
     end
+  end
+
+  def name
+    "#{self.first_name} #{self.last_name}"
   end
 
 end

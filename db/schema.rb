@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171128191442) do
+
+ActiveRecord::Schema.define(version: 20171128134449) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +30,18 @@ ActiveRecord::Schema.define(version: 20171128191442) do
     t.date "date"
     t.index ["skill_id"], name: "index_lessons_on_skill_id"
     t.index ["student_id"], name: "index_lessons_on_student_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text "message_text"
+    t.bigint "skill_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "sender_id"
+    t.bigint "receiver_id"
+    t.index ["receiver_id"], name: "index_messages_on_receiver_id"
+    t.index ["sender_id"], name: "index_messages_on_sender_id"
+    t.index ["skill_id"], name: "index_messages_on_skill_id"
   end
 
   create_table "skills", force: :cascade do |t|
@@ -78,5 +91,8 @@ ActiveRecord::Schema.define(version: 20171128191442) do
 
   add_foreign_key "lessons", "skills"
   add_foreign_key "lessons", "users", column: "student_id"
+  add_foreign_key "messages", "skills"
+  add_foreign_key "messages", "users", column: "receiver_id"
+  add_foreign_key "messages", "users", column: "sender_id"
   add_foreign_key "skills", "users", column: "teacher_id"
 end

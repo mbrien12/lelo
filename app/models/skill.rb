@@ -1,6 +1,7 @@
 class Skill < ApplicationRecord
   belongs_to :teacher, class_name: "User"
   has_many :lessons
+  has_many :messages
 
   def self.search(params)
     skills = self.joins(:teacher).all
