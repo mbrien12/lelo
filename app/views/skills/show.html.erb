@@ -1,39 +1,54 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @skill.name %>
-</p>
+<div class="skill-show-page">
 
-<p>
-  <strong>Price:</strong>
-  <%= @skill.price %>
-</p>
+  <div class="teacher-skill-show-container">
 
-<p>
-  <strong>Description:</strong>
-  <%= @skill.description %>
-</p>
 
-<p>
-  <strong>Teacher:</strong>
-  <%= @skill.teacher_id %>
-</p>
+    <%= image_tag @skill.teacher.photo.url(:profile), id: "skill-photo"%>
 
-<p>
-  <strong>Availability:</strong>
-  <%= @skill.availability %>
-</p>
+  <h3>
+    <%= @skill.teacher.name%>
+  </h3>
 
-<p>
-  <strong>Category:</strong>
-  <%= @skill.category %>
-</p>
+  <p><%= "#{@skill.teacher.first_name}'s Bio:" %></p>
+  <p><%= @skill.teacher.bio %></p>
 
-<p>
-  <strong>Skill rating:</strong>
-  <%= @skill.skill_rating %>
-</p>
+
+
+
+  <p>
+    Skill rating:
+    <i class="fa fa-star" aria-hidden="true"></i>
+    <%= @skill.skill_rating %>
+  </p>
+  </div>
+
+  <div class="skill-show-container">
+      <h1>
+        <%= "#{@skill.name} Lesson" %>
+      </h1>
+
+    <p>
+      Price:
+      <%= @skill.price %>
+    </p>
+
+    <p>
+      Availability:
+      <%= @skill.availability %>
+    </p>
+
+    <p>
+      Description:
+      <%= @skill.description %>
+    </p>
+
+    <p>
+      Category:
+      <%= @skill.category %>
+  </div>
+</div>
 
 <%= link_to 'Edit', edit_skill_path(@skill) %> |
 <%= link_to 'Back', skills_path %>
