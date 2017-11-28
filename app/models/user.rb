@@ -7,6 +7,8 @@ class User < ApplicationRecord
   has_many :skills, foreign_key: :teacher_id
   has_many :lessons, foreign_key: :student_id
   mount_uploader :photo, PhotoUploader
+  geocoded_by :location
+  after_validation :geocode, if: :location_changed?
 
   def self.find_for_facebook_oauth(auth)
     user_params = auth.slice(:provider, :uid)
