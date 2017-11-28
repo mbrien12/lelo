@@ -1,7 +1,8 @@
-<p id="notice"><%= notice %></p>
+<!-- <p id="notice"><%= notice %></p> -->
+<div class="wrapper-white">
 <div class="container">
   <h1 class="text-center">Find a local teacher</h1>
-   <form action="" class="form-inline text-center search-form">
+   <form action=<%= root_path(anchor: 'skills.title') %> method='get', class="form-inline text-center search-form">
       <input name="search" class="form-control search" placeholder="I am learning...">
       <input name="search" class="form-control search" placeholder="Where?">
      <input type="submit" value="Search" class="btn btn-primary">
@@ -9,6 +10,7 @@
 </div>
 
 <div id="map" style="width: 100%; height: 600px;"></div>
+</div>
 
 <% content_for(:after_js) do %>
   <script>
@@ -25,3 +27,4 @@
   });
   </script>
 <% end %>
+

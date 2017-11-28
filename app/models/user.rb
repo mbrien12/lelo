@@ -8,7 +8,7 @@ class User < ApplicationRecord
   has_many :lessons, foreign_key: :student_id
   mount_uploader :photo, PhotoUploader
   geocoded_by :location
-  after_validation :geocode, if: :location_changed?
+  after_validation :get_address, if: :location_changed?
 
   def self.find_for_facebook_oauth(auth)
     user_params = auth.slice(:provider, :uid)
@@ -29,6 +29,22 @@ class User < ApplicationRecord
     end
 
     return user
+  end
+
+    def get_address
+    google = "https://maps.googleapis.com/maps/api/geocode/json?address="
+    key = ENV['GOOGLE_API_SERVER_KEY']
+    url = "#{google}#{self.location}&key=#{key}"
+
+    if !self.location.blank?
+      address_hash = JSON.parse(open(url).read)
+      if address_hash['status'] == 'OK'
+        address_hash = address_hash["results"][0]
+        self.formatted_address = address_hash["formatted_address"]
+        self.latitude = address_hash["geometry"]["location"]["lat"]
+        self.longitude = address_hash["geometry"]["location"]["lng"]
+      end
+    end
   end
 
 end
