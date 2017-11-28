@@ -7,8 +7,8 @@ module ApplicationHelper
     user.photo_url(:profile) || user.facebook_picture_url || "http://placehold.it/30x30"
   end
 
-  # def skill_teacher_photo
-  #   skill.teacher.photo.url(:thumb) || skill.teacher.facebook_picture_url || "http://placehold.it/30x30"
-  # end
+  def teacher_photo(skill)
+    skill.teacher.photo.url(:thumb) || skill.teacher.facebook_picture_url || "http://placehold.it/30x30"
+  end
 end
 
