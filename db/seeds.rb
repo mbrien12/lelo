@@ -14,9 +14,9 @@ puts "Creating 2 teachers with 1 skill each"
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     location: "Nex, Gloria, Rio",
-    latitude: 22.92084,
-    longitude: -43.17809,
-    photo: "https://assets.entrepreneur.com/content/3x2/1300/20150406145944-dos-donts-taking-perfect-linkedin-profile-picture-selfie-mobile-camera-2.jpeg",
+    latitude: -43.17809,
+    longitude: 22.92084,
+    remote_photo_url: "https://assets.entrepreneur.com/content/3x2/1300/20150406145944-dos-donts-taking-perfect-linkedin-profile-picture-selfie-mobile-camera-2.jpeg",
     role: "teacher",
     bio: "Hello I'm a teacher"
     )
@@ -34,9 +34,9 @@ puts "Creating 2 teachers with 1 skill each"
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     location: "Copacabana beach, Rio",
-    latitude: 22.96944,
-    longitude: 43.1822416,
-    photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJFRuAejYIvKte1YL7eTyYc-szQKEDtOTtQlPOPWs6QtkHy3T_eg",
+    latitude: 43.1822416,
+    longitude: 22.96944,
+    remote_photo_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJFRuAejYIvKte1YL7eTyYc-szQKEDtOTtQlPOPWs6QtkHy3T_eg",
     role: "teacher",
     bio: "Hello I'm another teacher"
     )
