@@ -8,9 +8,10 @@ class SkillsController < ApplicationController
     @skills = Skill.joins(:teacher).all
 
     @mapped_skills = @skills.where.not(users: {latitude: nil, longitude: nil})
-    @hash = Gmaps4rails.build_markers(@mapped_skills) do |skill, marker|
+    @markers = Gmaps4rails.build_markers(@mapped_skills) do |skill, marker|
       marker.lat skill.teacher.latitude
       marker.lng skill.teacher.longitude
+      marker.infowindow render_to_string(partial: "/skills/skill_preview", locals: { skill: skill })
     end
   end
 
