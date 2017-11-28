@@ -10,8 +10,15 @@ class MessagesController < ApplicationController
   end
 
   def create
+    @users = User.all
+
     @message = Message.new(message_params)
     @message.sender = current_user
+    if @message.save
+      redirect_to messages_path
+    else
+      render :new
+    end
   end
 
   def show
@@ -21,6 +28,6 @@ class MessagesController < ApplicationController
   private
 
   def message_params
-    params.require(:message).permit(:message_text, :receiver)
+    params.require(:message).permit(:message_text, :receiver_id)
   end
 end

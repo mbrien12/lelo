@@ -4,7 +4,7 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.association :receiver, collection: @users, label_method: lambda { |user| "#{user.email}" } %>
+    <%= f.association :receiver, collection: @users, label_method: :email %>
     <%= f.input :message_text %>
   </div>
 
