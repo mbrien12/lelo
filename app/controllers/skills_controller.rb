@@ -5,7 +5,11 @@ class SkillsController < ApplicationController
   # GET /skills.json
   def index
 
-    @skills = Skill.joins(:teacher).all
+    if params[:location].present?
+      @skills = Skill.where("lower(unaccent(skills.teacher.formatted_address)) LIKE :location", {location: "%#{params[:location].downcase}%"})
+    else
+      @skills = Skill.joins(:teacher).all
+    end
 
     @mapped_skills = @skills.where.not(users: {latitude: nil, longitude: nil})
     @markers = Gmaps4rails.build_markers(@mapped_skills) do |skill, marker|

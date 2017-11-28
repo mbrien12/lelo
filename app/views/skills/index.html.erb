@@ -2,9 +2,9 @@
 <div class="wrapper-white">
 <div class="container">
   <h1 class="text-center">Find a local teacher</h1>
-   <form action=<%= root_path(anchor: 'skills.title') %> method='get', class="form-inline text-center search-form">
-      <input name="search" class="form-control search" placeholder="I am learning...">
-      <input name="search" class="form-control search" placeholder="Where?">
+   <form action=<%= skills_path %> method='get', class="form-inline text-center search-form">
+      <input name="skill" class="form-control search" placeholder="I am learning...">
+      <input name="location" class="form-control search" placeholder="Where?">
      <input type="submit" value="Search" class="btn btn-primary">
      </form>
 </div>
