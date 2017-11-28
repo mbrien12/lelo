@@ -1,0 +1,15 @@
+
+<div class="map-preview">
+  <div class="preview-left">
+    <%= image_tag teacher_photo(skill)  %>
+    <p><strong><%= skill.category %></strong></p>
+    <p class="font-small">$<%= skill.price %>/hour</p>
+    <p class="font-small">Add rating here!</p>
+  </div>
+  <div class="preview-right">
+    <p> Hi I'm <%= skill.teacher.first_name %></p>
+    <p> I teach <%= skill.name %></p>
+    <p class="font-small"><%= skill.teacher.bio %></p>
+    <%= link_to "Learn with me",skills_path(skill), class: "btn btn-primary"  %>
+  </div>
+</div>

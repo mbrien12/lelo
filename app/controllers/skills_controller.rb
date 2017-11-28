@@ -1,10 +1,18 @@
 class SkillsController < ApplicationController
   before_action :set_skill, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   # GET /skills
   # GET /skills.json
   def index
-    @skills = Skill.all
+    @skills = Skill.search(params)
+
+    @mapped_skills = @skills.where.not(users: {latitude: nil, longitude: nil})
+    @markers = Gmaps4rails.build_markers(@mapped_skills) do |skill, marker|
+      marker.lat skill.teacher.latitude
+      marker.lng skill.teacher.longitude
+      marker.infowindow render_to_string(partial: "/skills/skill_preview", locals: { skill: skill })
+    end
   end
 
   # GET /skills/1
