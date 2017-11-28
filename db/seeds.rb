@@ -24,7 +24,7 @@ puts "Creating 2 teachers with 1 skill each"
   teacher1.skills.create(
     name: "Ruby",
     description: "I can teach you how to create a Ruby on Rails application",
-    price: "$10/hr",
+    price: 10,
     category: "Programming"
     )
 
@@ -44,7 +44,7 @@ puts "Creating 2 teachers with 1 skill each"
    teacher2.skills.create(
     name: "Guitar lessons",
     description: "I'm a professional guitar player, come jam with me to improve your skills!",
-    price: "$8/hr",
+    price: 8,
     category: "Music"
     )
 
