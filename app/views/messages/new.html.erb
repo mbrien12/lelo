@@ -1,0 +1,14 @@
+<h1>Messages#new</h1>
+
+<%= simple_form_for(@message) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :receiver, collection: @users, label_method: :email %>
+    <%= f.input :message_text %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
