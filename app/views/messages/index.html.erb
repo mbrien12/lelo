@@ -1,2 +1,26 @@
 <h1>Messages#index</h1>
 <p>Find me in app/views/messages/index.html.erb</p>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>You</th>
+      <th>Him/Her</th>
+      <th>Message</th>
+    </tr>
+  </thead>
+
+  <tbody>
+<% @messages.each do |message| %>
+      <tr>
+        <td><%= message.sender.email %></td>
+        <td><%= message.receiver.email %></td>
+        <td><%= message.message_text %></td>
+        <td><%= link_to "Show", message %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New Message', new_message_path %>

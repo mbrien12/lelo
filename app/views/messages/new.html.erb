@@ -1,2 +1,14 @@
 <h1>Messages#new</h1>
-<p>Find me in app/views/messages/new.html.erb</p>
+
+<%= simple_form_for(@message) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :receiver, collection: @users, label_method: lambda { |user| "#{user.email}" } %>
+    <%= f.input :message_text %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

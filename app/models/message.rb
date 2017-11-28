@@ -1,5 +1,5 @@
 class Message < ApplicationRecord
-  belongs_to :skill
-  belongs_to :student, class_name: "User"
-  belongs_to :teacher, class_name: "User"
+  belongs_to :skill, optional: true
+  belongs_to :sender, class_name: "User"
+  belongs_to :receiver, class_name: "User"
 end

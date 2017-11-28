@@ -35,11 +35,11 @@ ActiveRecord::Schema.define(version: 20171128134449) do
     t.bigint "skill_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "student_id"
-    t.bigint "teacher_id"
+    t.bigint "sender_id"
+    t.bigint "receiver_id"
+    t.index ["receiver_id"], name: "index_messages_on_receiver_id"
+    t.index ["sender_id"], name: "index_messages_on_sender_id"
     t.index ["skill_id"], name: "index_messages_on_skill_id"
-    t.index ["student_id"], name: "index_messages_on_student_id"
-    t.index ["teacher_id"], name: "index_messages_on_teacher_id"
   end
 
   create_table "skills", force: :cascade do |t|
@@ -89,7 +89,7 @@ ActiveRecord::Schema.define(version: 20171128134449) do
   add_foreign_key "lessons", "skills"
   add_foreign_key "lessons", "users", column: "student_id"
   add_foreign_key "messages", "skills"
-  add_foreign_key "messages", "users", column: "student_id"
-  add_foreign_key "messages", "users", column: "teacher_id"
+  add_foreign_key "messages", "users", column: "receiver_id"
+  add_foreign_key "messages", "users", column: "sender_id"
   add_foreign_key "skills", "users", column: "teacher_id"
 end

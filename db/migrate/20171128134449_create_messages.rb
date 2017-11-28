@@ -7,9 +7,9 @@ class CreateMessages < ActiveRecord::Migration[5.1]
       t.timestamps
     end
 
-    add_reference :messages, :student, references: :users, index: true
-    add_foreign_key :messages, :users, column: :student_id
-    add_reference :messages, :teacher, references: :users, index: true
-    add_foreign_key :messages, :users, column: :teacher_id
+    add_reference :messages, :sender, references: :users, index: true
+    add_foreign_key :messages, :users, column: :sender_id
+    add_reference :messages, :receiver, references: :users, index: true
+    add_foreign_key :messages, :users, column: :receiver_id
   end
 end
