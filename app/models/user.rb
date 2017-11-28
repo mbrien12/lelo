@@ -6,6 +6,8 @@ class User < ApplicationRecord
          :omniauthable, omniauth_providers: [:facebook]
   has_many :skills, foreign_key: :teacher_id
   has_many :lessons, foreign_key: :student_id
+  has_many :messages, foreign_key: :student_id
+  has_many :messages, foreign_key: :teacher_id
   mount_uploader :photo, PhotoUploader
 
   def self.find_for_facebook_oauth(auth)
