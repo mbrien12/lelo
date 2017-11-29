@@ -36,16 +36,25 @@
 
 // -----------------------------LIST CARD --------------------------------------------
 
+.skill-list {
+  margin-top: 20px;
+}
+
 .skill-list-card {
   display: flex;
   justify-content: space-around;
   background-color: #F4F4F4;
-  margin-right: 100px;
-  margin-left: 100px;
+  margin-right: 250px;
+  margin-left: 250px;
   padding: 50px;
   border-radius: 7px;
-  border: solid 1px gray;
-  margin-bottom: 20px;
+  box-shadow: 1px 1px 3px #888888;
+  margin-bottom: 40px;
+}
+
+.end {
+  margin-right: auto;
+  margin-left: 100px;
 }
 
 // -----------------------------JS CLASSES FOR TITLE-----------------------------------
