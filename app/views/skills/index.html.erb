@@ -7,13 +7,17 @@
       <input name="location" id="location" class="form-control search" placeholder="Where?">
      <input type="submit" id="search" value="Search" class="btn btn-primary">
      </form>
+      <span id=view-toggle> <p id="map-toggle" class="active">Map</p>|<p id="list-toggle" class="inactive">List</p></span>
 </div>
 
 <div id="search-result-message">
 </div>
 
+
 <div id="map" style="width: 100%; height: 600px;"></div>
+<div id="list"></div>
 </div>
+
 
 <% content_for(:after_js) do %>
   <script>
@@ -29,19 +33,50 @@
       }
   });
 
-    // THIS ISN'T WORKING YET..content doesn't stay because form is being submitted
+    // JS for toggling map
 
-    const searchSubmit = document.getElementById('search');
-    const skillInput = document.getElementById('skill').value;
-    const locationInput = document.getElementById('location').value;
+    const mapToggle = document.getElementById('map-toggle');
+    const listToggle = document.getElementById('list-toggle');
+    const map = document.getElementById('map');
+    const list = document.getElementById('list');
 
-    const showSearchMessage = (event) => {
-       document.getElementById("search-result-message").innerHTML = '<p>Hello</p>';
-    }
+    const renderList = (event) => {
+      document.getElementById("list").innerHTML = '<%= j render "skill-list",skills: @skills %>';
+      map.style.display = "none";
+      }
 
-    searchSubmit.addEventListener('click', showSearchMessage);
+    const showMap = (event) => {
+      list.style.display = "none";
+      map.style.display = "block";
+      }
+
+      listToggle.addEventListener("click", renderList);
+      mapToggle.addEventListener("click", showMap);
+
+
 
 
   </script>
 <% end %>
+
+
+<!--
+
+
+
+
+<!
+
+    // THIS ISN'T WORKING YET..content doesn't stay because form is being submitted
+
+    // const searchSubmit = document.getElementById('search');
+    // const skillInput = document.getElementById('skill').value;
+    // const locationInput = document.getElementById('location').value;
+
+    // const showSearchMessage = (event) => {
+    //    document.getElementById("search-result-message").innerHTML = '<p>Hello</p>';
+    // }
+
+    // searchSubmit.addEventListener('click', showSearchMessage); -->
+
 

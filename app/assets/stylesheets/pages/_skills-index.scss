@@ -1,5 +1,33 @@
 
 .search-form {
   padding: 30px;
-  margin-bottom: 30px;
 }
+
+#view-toggle {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+
+
+  .active {
+    color: black;
+  }
+
+  .inactive {
+    color: gray;
+  }
+
+  .inactive:hover {
+    color: black;
+  }
+
+  p:first-child {
+    margin-right: 5px;
+  }
+
+  p:last-child {
+    margin-left: 5px;
+  }
+}
+
+
