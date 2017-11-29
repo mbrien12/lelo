@@ -24,19 +24,54 @@
 
 //-----------------------ANIMATED BANNER ---------------------------
 
-@font-face {
-    font-family: 'League Spartan';
-    src: font-url('leaguespartan-bold.eot');
-    src: font-url('leaguespartan-bold.eot?#iefix') format('embedded-opentype'),
-         font-url('leaguespartan-bold.woff2') format('woff2'),
-         font-url('leaguespartan-bold.woff') format('woff'),
-         font-url('leaguespartan-bold.ttf') format('truetype'),
-         font-url('leaguespartan-bold.svg#league_spartanbold') format('svg');
-    font-weight: bold;
-    font-style: normal;
+
+.banner {
+  background-color: white;
+  display: flex;
+  justify-content: space-around;
+  padding: 150px;
 
 }
 
- h1 {
- font-family:"League Spartan";
+.banner h1 {
+  color: black;
+  font-size: 4.5em;
 }
+
+.hp-button {
+  margin-top: 30px;
+}
+
+#change-text {
+    opacity: 1;
+    transition: opacity 0.5s ease-in;
+    animation: fadein;
+}
+
+.hide {
+    opacity: 0 !important;
+}
+
+
+.fade-out {
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: all 1s ease-out;
+    transition: all 1s ease-out;
+    transform: translate(0, -50px);
+    -webkit-transform: translate(0, -50px);
+    -o-transform: translate(0, -50px);
+    -moz-transform: translate(0, -50px);
+
+}
+
+
+.fadeIn {
+    opacity: 1;
+    -webkit-transition: all 1s ease-in;
+    transition: all 1s ease-in;
+    transform: translate(0, -50px);
+    -webkit-transform: translate(0, -50px);
+    -o-transform: translate(0, -50px);
+    -moz-transform: translate(0, -50px);
+  }

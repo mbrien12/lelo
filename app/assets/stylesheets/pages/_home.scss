@@ -12,6 +12,11 @@
   color: black;
 }
 
+.wrapper-green {
+  background-color: $green;
+  color: black;
+}
+
 .feature-heading {
   margin: 50px 0;
 }
@@ -49,4 +54,8 @@ width: 100px;
 }
 .customer-quote {
   max-width: 250px;
+}
+
+.customer-text {
+  margin-bottom: 50px;
 }

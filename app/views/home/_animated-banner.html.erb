@@ -1,10 +1,38 @@
 
 <div class="banner">
-  <div class="banner-left">
-    <h1>Font test</h1>
+    <div class="banner-left">
+      <h1 id="change-text" >LEARN MORE</h1>
 
-  </div>
-  <div class="banner-right">
-
+    </div>
+    <div class="banner-right">
+      <%= link_to "Find a local teacher here", skills_path, class: "hp-button btn btn-primary" %>
+    </div>
   </div>
 </div>
+
+
+
+<% content_for(:after_js) do %>
+  <script>
+  const text = ["LEARN LOCAL", "LEALO"];
+  let counter = 0;
+  const elem = document.getElementById("change-text");
+  let intervalId = setInterval(change, 2500);
+  function change() {
+      elem.classList.add('hide');
+      setTimeout(function () {
+          elem.innerHTML = text[counter];
+          elem.classList.remove('hide');
+          counter++;
+          if (counter >= text.length) {
+              counter = 0;
+              clearInterval(intervalId);
+             }
+
+        }, 500);
+    }
+
+
+
+  </script>
+<% end %>
