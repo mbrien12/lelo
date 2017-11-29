@@ -22,11 +22,13 @@
     <i class="fa fa-star" aria-hidden="true"></i>
     <%= @skill.skill_rating %>
   </p>
+
+  <%= render 'lessons/lesson-booking-form' %>
   </div>
 
   <div class="skill-show-container">
       <h1>
-        <%= "#{@skill.name} Lesson" %>
+        <%= "Learn #{@skill.name} " %>
       </h1>
 
     <p>
