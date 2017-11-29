@@ -10,10 +10,13 @@ class LessonsController < ApplicationController
     @lesson = Lesson.new(lesson_params)
     @lesson.completed = false
     @lesson.paid = false
-    @lesson.skill_id =
+    @lesson.student_id = current_user.id
+
+
+    @skill = @lesson.skill
 
     if @lesson.save
-      redirect_to @lesson, notice: 'Lesson was successfully requested '
+      redirect_to @skill, notice: 'Lesson was successfully requested '
     else
       render 'skills/show'
     end
@@ -36,8 +39,7 @@ class LessonsController < ApplicationController
   end
 
   def lesson_params
-      params.require(:lesson).permit(:date, :skill_id, :name)
+      params.require(:lesson).permit(:date, :skill_id, :name, :price)
   end
 
 end
-
