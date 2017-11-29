@@ -1,22 +1,78 @@
+//----------------OLD BANNER ----------DELETE IF GO WITH NEW VERION
+
+// .banner {
+//   color: white;
+//   text-align: center;
+//   height: calc(100vh - 70px);
+//   /* if you have a 70px navbar => height: calc(100vh - 70px); */
+//   background-size: cover !important;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+// }
+// .banner h1 {
+//   font-size: 64px;
+//   font-weight: bold;
+//   text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+//   letter-spacing: 2px;
+// }
+// .banner p {
+//   font-size: 50px;
+//   margin-bottom: 30px;
+//   font-weight: bold;
+// }
+
+//-----------------------ANIMATED BANNER ---------------------------
+
+
 .banner {
-  color: white;
-  text-align: center;
-  height: calc(100vh - 70px);
-  /* if you have a 70px navbar => height: calc(100vh - 70px); */
-  background-size: cover !important;
+  background-color: white;
   display: flex;
+  justify-content: space-between;
+  padding: 150px;
   align-items: center;
-  justify-content: center;
 }
+
+
+.banner-left {
+  width: 50%;
+}
+
+.banner-right {
+  margin-left: 50px;
+}
+
 .banner h1 {
-  font-size: 64px;
-  font-weight: bold;
-  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
-  letter-spacing: 2px;
+  color: black;
+  font-size: 4em;
 }
-.banner p {
-  font-size: 50px;
-  margin-bottom: 30px;
-  font-weight: bold;
+
+.hp-button {
+  margin-top: 30px;
 }
+
+
+.fadeIn {
+  opacity: 1;
+  -webkit-transition: all 1s ease-in;
+  transition: all 1s ease-in;
+  transform: translate(0, -50px);
+  -webkit-transform: translate(0, -50px);
+  -o-transform: translate(0, -50px);
+  -moz-transform: translate(0, -50px);
+}
+
+.fadeOut {
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: all 1s ease-out;
+  transition: all 1s ease-out;
+  transform: translate(0, -50px);
+  -webkit-transform: translate(0, -50px);
+  -o-transform: translate(0, -50px);
+  -moz-transform: translate(0, -50px);
+}
+
+
+
 
