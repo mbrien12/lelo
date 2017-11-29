@@ -3,17 +3,29 @@
 <div class="container">
   <h1 class="text-center">Find a local teacher</h1>
    <form action=<%= skills_path %> method='get', class="form-inline text-center search-form">
-      <input name="skill" class="form-control search" placeholder="I am learning...">
-      <input name="location" class="form-control search" placeholder="Where?">
-     <input type="submit" value="Search" class="btn btn-primary">
+      <input name="skill" id="skill" class="form-control search" placeholder="I am learning..." >
+      <input name="location" id="location" class="form-control search" placeholder="Where?">
+     <input type="submit" id="search" value="Search" class="btn btn-primary">
      </form>
+
+      <span id=view-toggle> <p id="map-toggle" class="active">Map</p>|<p id="list-toggle" class="inactive">List</p></span>
 </div>
 
-<div id="map" style="width: 100%; height: 600px;"></div>
+<div id="search-result-message" class="hide">
+  <h3 class="text-center"><%= @skills.length %> teachers in your area </h3>
 </div>
+
+
+<div id="map" style="width: 100%; height: 50vh;"></div>
+<div id="list"></div>
+</div>
+
 
 <% content_for(:after_js) do %>
   <script>
+
+    // JS for map
+
     const handler = Gmaps.build('Google');
     handler.buildMap({ internal: { id: 'map' } }, function() {
       markers = handler.addMarkers(<%= raw @markers.to_json %>);
@@ -25,6 +37,70 @@
         handler.getMap().setZoom(14);
       }
   });
+
+    // JS for toggling map
+
+    const mapToggle = document.getElementById('map-toggle');
+    const listToggle = document.getElementById('list-toggle');
+    const map = document.getElementById('map');
+    const list = document.getElementById('list');
+
+    const renderList = (event) => {
+      document.getElementById("list").innerHTML = '<%= j render "skill-list",skills: @skills %>';
+      map.style.display = "none";
+      list.style.display = "block";
+      listToggle.classList.remove("inactive");
+      mapToggle.classList.add("inactive");
+      }
+
+    const showMap = (event) => {
+      map.style.display = "block";
+      list.style.display = "none";
+      mapToggle.classList.remove("inactive");
+      listToggle.classList.add("inactive");
+
+      }
+
+      listToggle.addEventListener("click", renderList);
+      mapToggle.addEventListener("click", showMap);
+
+      // JS for showing search result title - but disappears after reloading the page.... NEED TO FIX!
+
+      const searchSubmit = document.getElementById('search');
+      const messageContainer = document.getElementById('search-result-message');
+
+      const showSearchMessage = (event) => {
+        messageContainer.classList.add("show");
+      }
+
+      searchSubmit.addEventListener('click', showSearchMessage);
+
+
+
+
+
+
   </script>
 <% end %>
+
+
+<!--
+
+
+
+
+<!
+
+    // THIS ISN'T WORKING YET..content doesn't stay because form is being submitted
+
+    // const searchSubmit = document.getElementById('search');
+    // const skillInput = document.getElementById('skill').value;
+    // const locationInput = document.getElementById('location').value;
+
+    // const showSearchMessage = (event) => {
+    //    document.getElementById("search-result-message").innerHTML = '<p>Hello</p>';
+    // }
+
+    // searchSubmit.addEventListener('click', showSearchMessage); -->
+
 
