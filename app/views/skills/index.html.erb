@@ -7,6 +7,7 @@
       <input name="location" id="location" class="form-control search" placeholder="Where?">
      <input type="submit" id="search" value="Search" class="btn btn-primary">
      </form>
+
       <span id=view-toggle> <p id="map-toggle" class="active">Map</p>|<p id="list-toggle" class="inactive">List</p></span>
 </div>
 
@@ -43,10 +44,15 @@
     const renderList = (event) => {
       document.getElementById("list").innerHTML = '<%= j render "skill-list",skills: @skills %>';
       map.style.display = "none";
+      listToggle.classList.remove("inactive");
+      mapToggle.classList.add("inactive");
       }
 
     const showMap = (event) => {
       map.style.display = "block";
+      mapToggle.classList.remove("inactive");
+      listToggle.classList.add("inactive");
+
       }
 
       listToggle.addEventListener("click", renderList);
