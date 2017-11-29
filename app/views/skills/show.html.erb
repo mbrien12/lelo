@@ -2,39 +2,43 @@
 
   <div class="teacher-skill-show-container">
     <%= image_tag photo_url(@skill.teacher), id: "skill-photo"%>
-  <h3>
-    <%= @skill.teacher.name%>
-  </h3>
-  <p><%= "#{@skill.teacher.first_name}'s Bio:" %></p>
-  <p><%= @skill.teacher.bio %></p>
-  <p>
-    Skill rating:
-    <i class="fa fa-star" aria-hidden="true"></i>
-    <%= @skill.skill_rating %>
-  </p>
-
-  <%= render 'lessons/lesson-booking-form' %>
+    <%= render 'lessons/lesson-booking-form' %>
   </div>
 
   <div class="skill-show-container">
-      <h1>
-        <%= "Learn #{@skill.name} " %>
-      </h1>
-    <p>
-      Price:
-      <%= @skill.price %>
-    </p>
-    <p>
-      Availability:
-      <%= @skill.availability %>
-    </p>
-    <p>
-      Description:
-      <%= @skill.description %>
-    </p>
-    <p>
-      Category:
-      <%= @skill.category %>
+      <h1><%= "Learn #{@skill.name} with #{@skill.teacher.first_name} " %></h1>
+    <p>Skill rating:
+    <i class="fa fa-star" aria-hidden="true"></i>
+    <%= @skill.skill_rating %></p>
+
+      <ul class="nav nav-tabs  teacher-details">
+        <li class="active"><a data-toggle="tab" href="#details">Details</a></li>
+        <li><a data-toggle="tab" href="#bio">Bio</a></li>
+        <li><a data-toggle="tab" href="#experience">Experience</a></li>
+      </ul>
+      <div class="tab-content">
+        <div id="details" class="tab-pane fade in tab-item active  ">
+            <table>
+            <tr>
+              <td><%= image_tag('price.png', class: "skill-show-icon") %></td>
+              <td> $ <%= @skill.price %>/hour</td>
+            </tr>
+            <tr>
+              <td><%= image_tag('calendar.png', class: "skill-show-icon") %></td>
+              <td>I'm available on <%= @skill.availability %></td>
+            </tr>
+          </table>
+        </div>
+        <div id="bio" class="tab-pane fade tab-item">
+           <p><%= @skill.teacher.bio %></p>
+        </div>
+        <div id="experience" class="tab-pane fade tab-item">
+          <%= image_tag('quote.png', class: "skill-show-icon") %>
+          <%= @skill.description %>
+        </div>
+      </div>
+       <%= link_to "Get in touch with #{@skill.teacher.first_name}", '#', class: "btn btn-default", id: "btn-space" %>
+
   </div>
   <div class="skill-show-reviews">
   <h3>This is where the reviews will live</h3>
