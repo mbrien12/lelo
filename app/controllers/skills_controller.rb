@@ -7,10 +7,10 @@ class SkillsController < ApplicationController
   def index
     @skills = Skill.search(params)
 
-    @mapped_skills = @skills.where.not(users: {latitude: nil, longitude: nil})
+    @mapped_skills = @skills.where.not(skills: {latitude: nil, longitude: nil})
     @markers = Gmaps4rails.build_markers(@mapped_skills) do |skill, marker|
-      marker.lat skill.teacher.latitude
-      marker.lng skill.teacher.longitude
+      marker.lat skill.latitude
+      marker.lng skill.longitude
       marker.infowindow render_to_string(partial: "/skills/skill_preview", locals: { skill: skill })
     end
   end
@@ -78,6 +78,6 @@ class SkillsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def skill_params
-      params.require(:skill).permit(:name, :price, :description, :teacher_id, :availability, :category, :skill_rating)
+      params.require(:skill).permit(:name, :price, :description, :teacher_id, :location, :availability, :category, :skill_rating)
     end
 end
