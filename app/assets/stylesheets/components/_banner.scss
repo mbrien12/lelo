@@ -28,50 +28,51 @@
 .banner {
   background-color: white;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   padding: 150px;
+  align-items: center;
+}
 
+
+.banner-left {
+  width: 50%;
+}
+
+.banner-right {
+  margin-left: 50px;
 }
 
 .banner h1 {
   color: black;
-  font-size: 4.5em;
+  font-size: 4em;
 }
 
 .hp-button {
   margin-top: 30px;
 }
 
-#change-text {
-    opacity: 1;
-    transition: opacity 0.5s ease-in;
-    animation: fadein;
-}
-
-.hide {
-    opacity: 0 !important;
-}
-
-
-.fade-out {
-    visibility: hidden;
-    opacity: 0;
-    -webkit-transition: all 1s ease-out;
-    transition: all 1s ease-out;
-    transform: translate(0, -50px);
-    -webkit-transform: translate(0, -50px);
-    -o-transform: translate(0, -50px);
-    -moz-transform: translate(0, -50px);
-
-}
-
 
 .fadeIn {
-    opacity: 1;
-    -webkit-transition: all 1s ease-in;
-    transition: all 1s ease-in;
-    transform: translate(0, -50px);
-    -webkit-transform: translate(0, -50px);
-    -o-transform: translate(0, -50px);
-    -moz-transform: translate(0, -50px);
-  }
+  opacity: 1;
+  -webkit-transition: all 1s ease-in;
+  transition: all 1s ease-in;
+  transform: translate(0, -50px);
+  -webkit-transform: translate(0, -50px);
+  -o-transform: translate(0, -50px);
+  -moz-transform: translate(0, -50px);
+}
+
+.fadeOut {
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: all 1s ease-out;
+  transition: all 1s ease-out;
+  transform: translate(0, -50px);
+  -webkit-transform: translate(0, -50px);
+  -o-transform: translate(0, -50px);
+  -moz-transform: translate(0, -50px);
+}
+
+
+
+
