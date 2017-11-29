@@ -16,6 +16,7 @@ gem 'font-awesome-sass'
 gem 'jquery-rails'
 gem 'sass-rails'
 gem 'simple_form'
+gem 'bootstrap-datepicker-rails'
 gem 'uglifier'
 gem 'faker'
 
