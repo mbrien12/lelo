@@ -1,4 +1,69 @@
 
+// -----------------------------SEARCH FORM -----------------------------------
 .search-form {
   padding: 30px;
+}
+
+// -----------------------------MAP/LIST TOGGLE -----------------------------------
+
+#view-toggle {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+
+
+  .active {
+    color: black;
+  }
+
+  .inactive {
+    color: gray;
+  }
+
+  .inactive:hover {
+    color: black;
+  }
+
+  p:first-child {
+    margin-right: 5px;
+  }
+
+  p:last-child {
+    margin-left: 5px;
+  }
+}
+
+
+// -----------------------------LIST CARD --------------------------------------------
+
+.skill-list {
+  margin-top: 20px;
+}
+
+.skill-list-card {
+  display: flex;
+  justify-content: space-around;
+  background-color: #F4F4F4;
+  margin-right: 250px;
+  margin-left: 250px;
+  padding: 50px;
+  border-radius: 7px;
+  box-shadow: 1px 1px 3px #888888;
+  margin-bottom: 40px;
+}
+
+.end {
+  margin-right: auto;
+  margin-left: 100px;
+}
+
+// -----------------------------JS CLASSES FOR TITLE-----------------------------------
+
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
 }
