@@ -11,7 +11,8 @@
       <span id=view-toggle> <p id="map-toggle" class="active">Map</p>|<p id="list-toggle" class="inactive">List</p></span>
 </div>
 
-<div id="search-result-message">
+<div id="search-result-message" class="hide">
+  <h3 class="text-center"><%= @skills.length %> teachers in your area </h3>
 </div>
 
 
@@ -22,6 +23,9 @@
 
 <% content_for(:after_js) do %>
   <script>
+
+    // JS for map
+
     const handler = Gmaps.build('Google');
     handler.buildMap({ internal: { id: 'map' } }, function() {
       markers = handler.addMarkers(<%= raw @markers.to_json %>);
@@ -57,6 +61,19 @@
 
       listToggle.addEventListener("click", renderList);
       mapToggle.addEventListener("click", showMap);
+
+      // JS for showing search result title - but disappears after reloading the page.... NEED TO FIX!
+
+      const searchSubmit = document.getElementById('search');
+      const messageContainer = document.getElementById('search-result-message');
+
+      const showSearchMessage = (event) => {
+        messageContainer.classList.add("show");
+      }
+
+      searchSubmit.addEventListener('click', showSearchMessage);
+
+
 
 
 

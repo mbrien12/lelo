@@ -1,7 +1,10 @@
 
+// -----------------------------SEARCH FORM -----------------------------------
 .search-form {
   padding: 30px;
 }
+
+// -----------------------------MAP/LIST TOGGLE -----------------------------------
 
 #view-toggle {
   display: flex;
@@ -31,3 +34,27 @@
 }
 
 
+// -----------------------------LIST CARD --------------------------------------------
+
+.skill-list-card {
+  display: flex;
+  justify-content: space-around;
+  background-color: #F4F4F4;
+  margin-right: 100px;
+  margin-left: 100px;
+  padding: 50px;
+  border-radius: 7px;
+  border: solid 1px gray;
+  margin-bottom: 20px;
+}
+
+// -----------------------------JS CLASSES FOR TITLE-----------------------------------
+
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}

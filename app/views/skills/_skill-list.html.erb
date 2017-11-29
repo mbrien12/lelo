@@ -1,6 +1,19 @@
-<h1>THIS IS WHERE THE LIST WILL LIVE</h1>
+ <h3 class="text-center"><%= @skills.length %> teachers in your area </h3>
 
+<div class="skill-list-card">
 <% skills.each do |skill| %>
-  <%= skill.name %>
-
+  <div>
+    <%= image_tag teacher_photo(skill)  %>
+    <p><strong><%= skill.category %></strong></p>
+    <p class="font-small">$<%= skill.price %>/hour</p>
+    <p class="font-small">Add rating here!</p>
+  </div>
+  <div>
+    <p> Hi I'm <%= skill.teacher.first_name %></p>
+    <p> I teach <%= skill.name %></p>
+    <p class="font-small"><%= skill.teacher.bio %></p>
+    <%= link_to "Learn with me",skill_path(skill), class: "btn btn-primary"  %>
+  </div>
+</div>
 <% end %>
+
