@@ -5,12 +5,12 @@
   <form action="<%= lessons_path %>" method="post">
     <div class="form-group">
       <div class='input-group date' id="margin-bottom">
-        <input name="lesson[date]" type='text' class="form-control"  placeholder="Suggest a date" data-provide='datepicker' />
+        <input name="lesson[date]" type='text' id="lesson-date" class="form-control"  placeholder="Suggest a date" data-provide='datepicker' />
         <span class="input-group-addon">
           <span class="glyphicon glyphicon-calendar"></span>
         </span>
-        <input name="lesson[name]" class="form-control" type="text"  value="What do you need help with?">
       </div>
+      <input name="lesson[name]" class="form-control" type="text" id="lesson-name"  value="What do you need help with?">
       <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
       <input type="hidden" name="lesson[skill_id]" value="<%= @skill.id %>">
       <input class="btn-primary" type="submit" value="Request lesson">
