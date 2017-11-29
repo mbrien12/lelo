@@ -3,20 +3,12 @@
 <div class="skill-show-page">
 
   <div class="teacher-skill-show-container">
-
-
     <%= image_tag photo_url(@skill.teacher), id: "skill-photo"%>
-
   <h3>
     <%= @skill.teacher.name%>
   </h3>
-
   <p><%= "#{@skill.teacher.first_name}'s Bio:" %></p>
   <p><%= @skill.teacher.bio %></p>
-
-
-
-
   <p>
     Skill rating:
     <i class="fa fa-star" aria-hidden="true"></i>
@@ -30,24 +22,25 @@
       <h1>
         <%= "Learn #{@skill.name} " %>
       </h1>
-
     <p>
       Price:
       <%= @skill.price %>
     </p>
-
     <p>
       Availability:
       <%= @skill.availability %>
     </p>
-
     <p>
       Description:
       <%= @skill.description %>
     </p>
-
     <p>
       Category:
       <%= @skill.category %>
   </div>
+  <div class="skill-show-reviews">
+  <h3>This is where the reviews will live</h3>
 </div>
+</div>
+
+
