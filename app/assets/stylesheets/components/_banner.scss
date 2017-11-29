@@ -1,22 +1,42 @@
-.banner {
-  color: white;
-  text-align: center;
-  height: calc(100vh - 70px);
-  /* if you have a 70px navbar => height: calc(100vh - 70px); */
-  background-size: cover !important;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.banner h1 {
-  font-size: 64px;
-  font-weight: bold;
-  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
-  letter-spacing: 2px;
-}
-.banner p {
-  font-size: 50px;
-  margin-bottom: 30px;
-  font-weight: bold;
+//----------------OLD BANNER ----------DELETE IF GO WITH NEW VERION
+
+// .banner {
+//   color: white;
+//   text-align: center;
+//   height: calc(100vh - 70px);
+//   /* if you have a 70px navbar => height: calc(100vh - 70px); */
+//   background-size: cover !important;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+// }
+// .banner h1 {
+//   font-size: 64px;
+//   font-weight: bold;
+//   text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+//   letter-spacing: 2px;
+// }
+// .banner p {
+//   font-size: 50px;
+//   margin-bottom: 30px;
+//   font-weight: bold;
+// }
+
+//-----------------------ANIMATED BANNER ---------------------------
+
+@font-face {
+    font-family: 'League Spartan';
+    src: font-url('leaguespartan-bold.eot');
+    src: font-url('leaguespartan-bold.eot?#iefix') format('embedded-opentype'),
+         font-url('leaguespartan-bold.woff2') format('woff2'),
+         font-url('leaguespartan-bold.woff') format('woff'),
+         font-url('leaguespartan-bold.ttf') format('truetype'),
+         font-url('leaguespartan-bold.svg#league_spartanbold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+
 }
 
+ h1 {
+ font-family:"League Spartan";
+}
