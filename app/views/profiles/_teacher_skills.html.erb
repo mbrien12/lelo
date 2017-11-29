@@ -1,7 +1,14 @@
-<h1>teacher skills</h1>
-<% @skills.each do |skill|%>
-<%= skill.name %>
-<% end %>
+<h3>My skills</h3>
+  <div class="card-container-skill">
+    <% @skills.each do |skill|%>
+      <%= link_to skill_path(skill) do %>
+        <div class="skill-card-profile", >
+          <i class="fa fa-grav fa-3x" aria-hidden="true"></i>
+          <h3><%= skill.name %></h3>
+        </div>
+        <% end %>
+    <% end %>
+  </div>
+ <%= link_to "Add a new Skill", new_skill_path%>
 
-
-
+</h3>
