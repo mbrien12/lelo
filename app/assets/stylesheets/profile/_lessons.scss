@@ -1,0 +1,24 @@
+.card-container-lesson{
+}
+
+.lesson-card-profile{
+  margin: 15px;
+  display: grid;
+  grid-template-columns: 60px 126px 300px 164px 65px 130px;
+  grid-template-rows: 48px;
+  border: 1px solid ;
+  padding: 10px;
+  border-color: #c9c7c7;
+  border-radius: 3px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  p{
+    font-size: 14px;
+    padding-top: 10px;
+  }
+}
+
+#student-photo{
+  border-radius: 50%;
+}
+
+

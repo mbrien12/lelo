@@ -18,18 +18,19 @@ class LessonsController < ApplicationController
     if @lesson.save
       redirect_to @skill, notice: 'Lesson was successfully requested '
     else
+      p @lesson.errors.full_messages
       render 'skills/show'
     end
   end
 
   def update
-    # if params[:confirm] == 'true'
-    #   @booking.confirm!
-    # elsif params[:cancel] == 'true'
-    #   @booking.cancel!
-    # end
-
-    # redirect_to profile_path(current_user)
+   if params[:status] == "confirmed"
+     @lesson.status = "confirmed"
+    elsif params[:status] == 'completed'
+      @lesson.status = "completed"
+    end
+    @lesson.save
+    redirect_to profile_path(current_user)
   end
 
 
