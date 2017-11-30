@@ -8,7 +8,7 @@ class LessonsController < ApplicationController
 
   def create
     @lesson = Lesson.new(lesson_params)
-    @lesson.completed = false
+    @lesson.status = "pending"
     @lesson.paid = false
     @lesson.student_id = current_user.id
 
