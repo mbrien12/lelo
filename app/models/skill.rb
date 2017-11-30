@@ -2,6 +2,7 @@ class Skill < ApplicationRecord
   belongs_to :teacher, class_name: "User"
   has_many :lessons
   has_many :messages
+  has_many :reviews
   geocoded_by :location
   after_validation :get_address, if: :location_changed?
 
