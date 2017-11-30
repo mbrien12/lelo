@@ -1,16 +1,66 @@
-<h2></h2>
-<div class="card-container-lesson">
-    <% @lessons.each do |lesson|%>
-        <div class="lesson-card-profile", >
-          <%= image_tag small_user_photo(lesson.student), id: "student-photo"%>
-          <p><%= lesson.student.name %></p>
-          <p><%= "Lesson: #{lesson.name}" %></p>
-          <p><%= "Date: #{lesson.date}" %></p>
-          <div class="lesson-status">
-          <p><%= lesson.status %></p>
+<h2>Lessons</h2>
+
+
+<ul class="nav nav-tabs">
+  <li><a data-toggle="tab" href="#pending">Pending</a></li>
+  <li><a data-toggle="tab" href="#completed">Completed</a></li>
+  <li><a data-toggle="tab" href="#menu3">Menu 3</a></li>
+</ul>
+
+<div id="pending" class="tab-pane fade in active">
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active no-border" id="status-lesson">
+      <% if @lessons.empty? %>
+        <p>No bookings yet </p>
+      <% else %>
+        <div class="card-container-lesson">
+          <div class="activity">
+            <% @lessons.each do |lesson|%>
+              <% if lesson.status == "pending"%>
+                <div class="lesson-card-profile", >
+                  <%= image_tag small_user_photo(lesson.student), id: "student-photo"%>
+                  <p><%= lesson.student.name %></p>
+                  <p><%= "Lesson: #{lesson.name}" %></p>
+                  <p><%= "Date: #{lesson.date}" %></p>
+                  <div class="lesson-status"><p><%= lesson.status %></p></div>
+                  <%= link_to "Confirm", lesson_path(lesson, status: "confirmed"), method: :patch, class: "btn btn-primary", id: "confirm-btn" %>
+                </div>
+              <% end %>
+            <% end %>
           </div>
-         <%= link_to "Confirm", lesson_path(lesson, status: "confirmed"), method: :patch, class: "btn btn-primary" %>
         </div>
       <% end %>
+    </div>
   </div>
+</div>
+<div id="completed" class="tab-pane fade">
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active no-border" id="status-lesson">
+      <% if @lessons.empty? %>
+        <p>No bookings yet </p>
+      <% else %>
+        <div class="card-container-lesson">
+          <div class="activity">
+            <% @lessons.each do |lesson|%>
+              <% if lesson.status == "confirmed"%>
+                <div class="lesson-card-profile", >
+                  <%= image_tag small_user_photo(lesson.student), id: "student-photo"%>
+                  <p><%= lesson.student.name %></p>
+                  <p><%= "Lesson: #{lesson.name}" %></p>
+                  <p><%= "Date: #{lesson.date}" %></p>
+                <div class="lesson-status"><p><%= lesson.status %></p></div>
+                <%= link_to "Confirm", lesson_path(lesson, status: "confirmed"), method: :patch, class: "btn btn-primary", id: "confirm-btn" %>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+    <div id="menu3" class="tab-pane fade">
+      <h3>Menu 3</h3>
+      <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+    </div>
 
