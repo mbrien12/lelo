@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171130130015) do
+ActiveRecord::Schema.define(version: 20171130141313) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,17 @@ ActiveRecord::Schema.define(version: 20171130130015) do
     t.index ["skill_id"], name: "index_messages_on_skill_id"
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.string "comment"
+    t.integer "rating"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "skill_id"
+    t.bigint "student_id"
+    t.index ["skill_id"], name: "index_reviews_on_skill_id"
+    t.index ["student_id"], name: "index_reviews_on_student_id"
+  end
+
   create_table "skills", force: :cascade do |t|
     t.string "name"
     t.integer "price"
@@ -57,6 +68,8 @@ ActiveRecord::Schema.define(version: 20171130130015) do
     t.float "latitude"
     t.float "longitude"
     t.string "formatted_address"
+    t.bigint "student_id"
+    t.index ["student_id"], name: "index_skills_on_student_id"
     t.index ["teacher_id"], name: "index_skills_on_teacher_id"
   end
 
@@ -93,5 +106,8 @@ ActiveRecord::Schema.define(version: 20171130130015) do
   add_foreign_key "messages", "skills"
   add_foreign_key "messages", "users", column: "receiver_id"
   add_foreign_key "messages", "users", column: "sender_id"
+  add_foreign_key "reviews", "skills"
+  add_foreign_key "reviews", "users", column: "student_id"
+  add_foreign_key "skills", "users", column: "student_id"
   add_foreign_key "skills", "users", column: "teacher_id"
 end
