@@ -18,6 +18,7 @@ class SkillsController < ApplicationController
   # GET /skills/1
   # GET /skills/1.json
   def show
+    @review = Review.new
   end
 
   # GET /skills/new

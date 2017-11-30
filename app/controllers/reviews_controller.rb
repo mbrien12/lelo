@@ -10,12 +10,13 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(review_params)
-    @student = current_user.id
+    @review.skill_id = params[:skill_id]
+    @review.student_id = current_user.id
 
     if @review.save
-      redirect to @student, notice: 'Review successfully submitted'
+      redirect_to profile_path(current_user), notice: 'Review successfully submitted'
     else
-      render 'profiles/id'
+      render 'profiles/show', id: current_user.id
     end
   end
 
