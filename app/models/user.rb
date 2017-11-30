@@ -6,6 +6,7 @@ class User < ApplicationRecord
          :omniauthable, omniauth_providers: [:facebook]
   has_many :skills, foreign_key: :teacher_id
   has_many :lessons, foreign_key: :student_id
+  has_many :reviews, foreign_key: :student_id
   has_many :messages, foreign_key: :sender_id
   has_many :messages, foreign_key: :receiver_id
   mount_uploader :photo, PhotoUploader
@@ -32,6 +33,6 @@ class User < ApplicationRecord
   end
 
   def name
-    "#{self.first_name} #{self.last_name}"
+    "#{self.first_name.capitalize} #{self.last_name.capitalize}"
   end
 end
