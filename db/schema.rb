@@ -68,6 +68,8 @@ ActiveRecord::Schema.define(version: 20171130141313) do
     t.float "latitude"
     t.float "longitude"
     t.string "formatted_address"
+    t.bigint "student_id"
+    t.index ["student_id"], name: "index_skills_on_student_id"
     t.index ["teacher_id"], name: "index_skills_on_teacher_id"
   end
 
@@ -106,5 +108,6 @@ ActiveRecord::Schema.define(version: 20171130141313) do
   add_foreign_key "messages", "users", column: "sender_id"
   add_foreign_key "reviews", "skills"
   add_foreign_key "reviews", "users", column: "student_id"
+  add_foreign_key "skills", "users", column: "student_id"
   add_foreign_key "skills", "users", column: "teacher_id"
 end
