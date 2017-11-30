@@ -1,0 +1,11 @@
+<h4>Reviews</h4>
+  <% if reviews.empty? %>
+    <p> No reviews yet!</p>
+  <% else %>
+    <ul>
+      <% reviews.each do |review| %>
+        <li><%= review.comment %></li>
+        <li><%= review.student.name %></li>
+      <% end %>
+    </ul>
+  <% end %>

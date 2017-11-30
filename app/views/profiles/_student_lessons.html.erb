@@ -18,8 +18,8 @@
               <% if lesson.status == "pending"%>
                 <div class="lesson-card-profile", >
                   <%= image_tag small_user_photo(lesson.teacher), id: "student-photo"%>
-                  <p><%= "Lesson: #{lesson.name}" %></p>
                   <p><%= "#{lesson.teacher.name}, #{lesson.skill.name} teacher"  %></p>
+                  <p><%= "Lesson: #{lesson.name}" %></p>
                   <p><%= "Date: #{lesson.date}" %></p>
                   <div class="lesson-status"><p><%= lesson.status %></p></div>
                 </div>
@@ -43,8 +43,8 @@
               <% if lesson.status == "confirmed"%>
                 <div class="lesson-card-profile", >
                   <%= image_tag small_user_photo(lesson.teacher), id: "student-photo"%>
+                    <p><%= "#{lesson.teacher.name}, #{lesson.skill.name} teacher"  %></p>
                   <p><%= "Lesson: #{lesson.name}" %></p>
-                  <p><%= "#{lesson.teacher.name}, #{lesson.skill.name} teacher"  %></p>
                   <p><%= "Date: #{lesson.date}" %></p>
                 <div class="lesson-status"><p><%= lesson.status %></p></div>
                 <%= link_to "Confirm", lesson_path(lesson, status: "confirmed"), method: :patch, class: "btn btn-primary", id: "confirm-btn" %>
@@ -64,11 +64,10 @@
               <% if lesson.status == "completed"%>
                 <div class="lesson-card-profile", >
                   <%= image_tag small_user_photo(lesson.teacher), id: "student-photo"%>
+                   <p><%= "#{lesson.teacher.name}, #{lesson.skill.name} teacher"  %></p>
                   <p><%= "Lesson: #{lesson.name}" %></p>
-                  <p><%= "#{lesson.teacher.name}, #{lesson.skill.name} teacher"  %></p>
                   <p><%= "Date: #{lesson.date}" %></p>
                    <%= link_to "Add a review", '#', class: "btn btn-info", id:'review-button' %>
-
                 </div>
               <% end %>
             <% end %>
