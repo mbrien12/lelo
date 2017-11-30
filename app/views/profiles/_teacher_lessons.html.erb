@@ -1,1 +1,16 @@
-<h1>Teacher lessons show</h1>
+<h2></h2>
+<div class="card-container-lesson">
+    <% @lessons.each do |lesson|%>
+        <div class="lesson-card-profile", >
+          <%= image_tag small_user_photo(lesson.student), id: "student-photo"%>
+          <p><%= lesson.student.name %></p>
+          <p><%= "Lesson: #{lesson.name}" %></p>
+          <p><%= "Date: #{lesson.date}" %></p>
+          <div class="lesson-status">
+          <p><%= lesson.status %></p>
+          </div>
+         <%= link_to "Confirm", lesson_path(lesson, status: "confirmed"), method: :patch, class: "btn btn-primary" %>
+        </div>
+      <% end %>
+  </div>
+

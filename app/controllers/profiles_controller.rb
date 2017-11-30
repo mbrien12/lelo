@@ -1,8 +1,12 @@
 class ProfilesController < ApplicationController
   def show
     @user = User.find(params[:id])
-    @skills = Skill.where(teacher: @user)
-    @teacher_lessons = Lesson.where(teacher: @user)
-    @student_lessons = Lesson.where(student: @user)
+    @skills = @user.skills # Skill.where(teacher: @user)
+
+    if @user.role == 'teacher'
+      @lessons = @skills.flat_map { |skill| skill.lessons }
+    else
+      @lessons = @user.lessons
+    end
   end
 end
