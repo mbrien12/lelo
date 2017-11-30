@@ -56,7 +56,38 @@
 
 // ---------------------------REVIEWS ---------------------
 .skill-show-reviews {
-
   background-color: white;
+  margin: 20px;
+  padding: 20px;
+
+  h4 {
+    margin-bottom: 50px;
+  }
 }
 
+
+.individual-review {
+  padding: 20px;
+
+  li {
+    list-style: none;
+  }
+
+  border-bottom: 1px solid #DDDDDD;
+}
+
+.review-comment {
+  color: gray;
+  font-style: italic;
+  margin-top: 30px;
+}
+
+
+
+.review-name {
+  margin-right: 10px;
+}
+
+.review-inline {
+  display: flex;
+}

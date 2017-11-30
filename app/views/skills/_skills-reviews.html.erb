@@ -4,8 +4,16 @@
   <% else %>
     <ul>
       <% reviews.each do |review| %>
-        <li><%= review.comment %></li>
-        <li><%= review.student.name %></li>
+      <div class="individual-review">
+        <span class="review-inline"><p class="review-name"><%= review.student.name %>,</p>
+          <p class="review-date"><%= review.created_at.strftime("%A, %b %d") %></p>
+        </span>
+        <% "#{review.rating}".to_i.times do %>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <% end %>
+        <p class="review-comment"><%= review.comment %></p>
+        </div>
       <% end %>
     </ul>
   <% end %>
+
