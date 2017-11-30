@@ -1,10 +1,9 @@
-<h2>Testing reviews!</h2>
-<ul>
+
 <% @lessons.each do |lesson| %>
-  <li><%= lesson.name %> <%= lesson.status %></li>
+<% if lesson.status == "completed" %>
   <%= render 'reviews-form', skill: lesson.skill, review: @review %>
 <% end %>
-</ul>
+<% end %>
 
 
 
