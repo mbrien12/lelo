@@ -26,7 +26,7 @@ class LessonsController < ApplicationController
   def update
    if params[:status] == "confirmed"
      @lesson.status = "confirmed"
-    elsif params[:status] == 'completed'
+    elsif params[:status] == "completed"
       @lesson.status = "completed"
     end
     @lesson.save
