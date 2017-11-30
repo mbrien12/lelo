@@ -2,14 +2,14 @@
   <%= link_to "Log in", new_session_path(resource_name) %><br />
 <% end -%>
 
-<%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-  <%= link_to "Sign up to teach", new_registration_path(resource_name, role: "teacher") %><br />
-
-  <%= link_to "Sign up as a learner", new_registration_path(resource_name, role: "student") %><br />
+<%- if devise_mapping.omniauthable? %>
+  <%- resource_class.omniauth_providers.each do |provider| %>
+    <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), class: "btn loginBtn loginBtn--facebook" %><br />
+  <% end -%>
 <% end -%>
 
 <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-  <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
+  <%= link_to "Forgot your password?", new_password_path(resource_name),class: "text-light"  %><br />
 <% end -%>
 
 <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
@@ -17,12 +17,20 @@
 <% end -%>
 
 <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
-  <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name) %><br />
+  <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name)%><br />
 <% end -%>
 
-<%- if devise_mapping.omniauthable? %>
-  <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider) %><br />
-  <% end -%>
+
+<h4 class= "register-title"> Need to register?</h4>
+
+<%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+<%= image_tag('teacher.png', class: "skill-show-icon") %>
+  <%= link_to "Sign up to teach", new_registration_path(resource_name, role: "teacher") %><br />
+
+  <%= image_tag('category.png', class: "skill-show-icon") %>
+  <%= link_to "Sign up as a learner", new_registration_path(resource_name, role: "student") %><br />
 <% end -%>
+
+
+
 
