@@ -11,8 +11,5 @@ module ApplicationHelper
     skill.teacher.photo.url(:thumb) || skill.teacher.facebook_picture_url || "http://placehold.it/30x30"
   end
 
-  def message_user_link(user)
-
-  end
 end
 
