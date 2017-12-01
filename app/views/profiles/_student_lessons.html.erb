@@ -6,56 +6,56 @@
 </ul>
 
 <div class="tab-content">
-<div id="pending" class="tab-pane fade in active">
-  <div class="tab-content">
-    <div role="tabpanel" class="tab-pane active no-border" id="status-lesson">
-      <% if @lessons.empty? %>
+  <div id="pending" class="tab-pane fade in active">
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane active no-border" id="status-lesson">
+        <% if @lessons.empty? %>
         <p>No bookings yet </p>
-      <% else %>
+        <% else %>
         <div class="card-container-lesson">
           <div>
             <% @lessons.each do |lesson|%>
-              <% if lesson.status == "pending"%>
-               <%= link_to skill_path(lesson.skill) do %>
-                <div class="lesson-card-profile", >
-                    <%= image_tag small_user_photo(lesson.teacher), id: "student-photo"%>
-                    <p><%= "#{lesson.teacher.name}, #{lesson.skill.name} teacher"  %></p>
-                    <p><%= "Lesson: #{lesson.name}" %></p>
-                    <p><%= "Date: #{lesson.date}" %></p>
-                    <div class="lesson-pending"><p><%= lesson.status %></p></div>
-                </div>
-                <% end %>
-              <% end %>
+            <% if lesson.status == "pending"%>
+            <%= link_to skill_path(lesson.skill) do %>
+            <div class="lesson-card-profile", >
+              <%= image_tag small_user_photo(lesson.teacher), id: "student-photo"%>
+              <p><%= "#{lesson.teacher.name}, #{lesson.skill.name} teacher"  %></p>
+              <p><%= "Lesson: #{lesson.name}" %></p>
+              <p><%= "Date: #{lesson.date}" %></p>
+              <div class="lesson-pending"><p><%= lesson.status %></p></div>
+            </div>
+            <% end %>
+            <% end %>
             <% end %>
           </div>
         </div>
-      <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
-</div>
-<div id="completed" class="tab-pane fade">
-  <div class="tab-content">
-    <div role="tabpanel" class="tab-pane active no-border" id="status-lesson">
-      <% if @lessons.empty? %>
-          <p>No bookings yet </p>
+  <div id="completed" class="tab-pane fade">
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane active no-border" id="status-lesson">
+        <% if @lessons.empty? %>
+        <p>No bookings yet </p>
         <% else %>
-          <div class="card-container-lesson">
-            <div class="activity">
-              <% @lessons.each do |lesson|%>
-                <% if lesson.status == "confirmed"%>
-                  <%= link_to skill_path(lesson.skill) do %>
-                    <div class="lesson-card-profile", >
-                    <%= image_tag small_user_photo(lesson.teacher), id: "student-photo"%>
-                    <p><%= "#{lesson.teacher.name}, #{lesson.skill.name} teacher"  %></p>
-                    <p><%= "Lesson: #{lesson.name}" %></p>
-                    <p><%= "Date: #{lesson.date}" %></p>
-                    <div class="lesson-confirmed"><p><%= lesson.status %></p></div>
-                    </div>
-                  <% end %>
-                <% end %>
-              <% end %>
+        <div class="card-container-lesson">
+          <div class="activity">
+            <% @lessons.each do |lesson|%>
+            <% if lesson.status == "confirmed"%>
+            <%= link_to skill_path(lesson.skill) do %>
+            <div class="lesson-card-profile", >
+              <%= image_tag small_user_photo(lesson.teacher), id: "student-photo"%>
+              <p><%= "#{lesson.teacher.name}, #{lesson.skill.name} teacher"  %></p>
+              <p><%= "Lesson: #{lesson.name}" %></p>
+              <p><%= "Date: #{lesson.date}" %></p>
+              <div class="lesson-confirmed"><p><%= lesson.status %></p></div>
             </div>
+            <% end %>
+            <% end %>
+            <% end %>
           </div>
+        </div>
         <% end %>
       </div>
     </div>
@@ -64,47 +64,47 @@
     <div class="tab-content">
       <div role="tabpanel" class="tab-pane active no-border" id="status-lesson">
         <% if @lessons.empty? %>
-            <p>No bookings yet </p>
-          <% else %>
-            <div class="card-container-lesson">
-              <div class="activity">
-                <% @lessons.each do |lesson|%>
-                  <% if lesson.status == "completed"%>
-                      <div class="lesson-card-profile", >
-                      <%= image_tag small_user_photo(lesson.teacher), id: "student-photo"%>
-                      <p><%= "#{lesson.teacher.name}, #{lesson.skill.name} teacher"  %></p>
-                      <p><%= "Lesson: #{lesson.name}" %></p>
-                      <p><%= "Date: #{lesson.date}" %></p>
-                      <%= link_to "Add a review", "#", class: "btn btn-info", id:'review-button' %>
-                      </div>
-                  <% end %>
-                <% end %>
-              </div>
+        <p>No bookings yet </p>
+        <% else %>
+        <div class="card-container-lesson">
+          <div class="activity">
+            <% @lessons.each do |lesson|%>
+            <% if lesson.status == "completed"%>
+            <div class="lesson-card-profile", >
+              <%= image_tag small_user_photo(lesson.teacher), id: "student-photo"%>
+              <p><%= "#{lesson.teacher.name}, #{lesson.skill.name} teacher"  %></p>
+              <p><%= "Lesson: #{lesson.name}" %></p>
+              <p><%= "Date: #{lesson.date}" %></p>
+              <%= link_to "Add a review", "#", class: "btn btn-info", id:'review-button' %>
             </div>
-          <% end %>
+            <% end %>
+            <% end %>
+          </div>
         </div>
+        <% end %>
       </div>
     </div>
   </div>
+</div>
 
-    <div id="review-container">
+<div id="review-container">
 
-    </div>
+</div>
 
 
 <% content_for(:after_js) do %>
-  <script>
+<script>
 
-    const reviewButton = document.getElementById("review-button");
-    const reviewContainer = document.getElementById("review-container");
+  const reviewButton = document.getElementById("review-button");
+  const reviewContainer = document.getElementById("review-container");
 
-    const showReviewForm = (event) => {
-      reviewContainer.innerHTML = '<%= j render 'student-reviews' %>'
-    }
+  const showReviewForm = (event) => {
+    reviewContainer.innerHTML = '<%= j render 'student-reviews' %>'
+  }
 
-    reviewButton.addEventListener("click", showReviewForm);
+  reviewButton.addEventListener("click", showReviewForm);
 
-  </script>
+</script>
 <% end %>
 
 
