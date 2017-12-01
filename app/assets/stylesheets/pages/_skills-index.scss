@@ -4,6 +4,15 @@
   padding: 30px;
 }
 
+
+// -----------------------------LAYOUT/TITLES -----------------------------------
+#search-result-message {
+ h3 {
+  margin: 0 0 20px 0;
+  color: gray;
+ }
+}
+
 // -----------------------------MAP/LIST TOGGLE -----------------------------------
 
 #view-toggle {
@@ -25,14 +34,26 @@
   }
 
   p:first-child {
-    margin-right: 5px;
+    margin-right: 10px;
   }
 
   p:last-child {
-    margin-left: 5px;
+    margin-left: 10px;
   }
 }
 
+.map-icon {
+  width: 20px;
+}
+
+#map-toggle, #list-toggle {
+  font-size: 20px;
+}
+
+.vertical-line {
+    border-left: solid 1px gray;
+    height: 30px;
+}
 
 // -----------------------------LIST CARD --------------------------------------------
 

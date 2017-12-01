@@ -10,12 +10,19 @@
 
       <ul class="nav nav-tabs  teacher-details">
         <li class="active"><a data-toggle="tab" href="#details">Details</a></li>
-        <li><a data-toggle="tab" href="#bio">Bio</a></li>
-        <li><a data-toggle="tab" href="#experience">Experience</a></li>
+        <li><a data-toggle="tab" href="#bio">Experience in <%= @skill.name %></a></li>
+        <li><a data-toggle="tab" href="#experience">About <%= @skill.teacher.first_name %></a></li>
       </ul>
       <div class="tab-content">
         <div id="details" class="tab-pane fade in tab-item active  ">
+
             <table>
+              <tr>
+                <td>Average rating</td>
+                <td> <% "#{@skill.average_rating}".to_i.times do %>
+        <i class="fa fa-star" aria-hidden="true"></i>
+      <% end %></td>
+              </tr>
             <tr>
               <td><%= image_tag('price.png', class: "skill-show-icon") %></td>
               <td> $ <%= @skill.price %>/hour</td>
@@ -25,13 +32,15 @@
               <td>I'm available on <%= @skill.availability %></td>
             </tr>
           </table>
+
         </div>
         <div id="bio" class="tab-pane fade tab-item">
-           <p><%= @skill.teacher.bio %></p>
+           <%= @skill.description %>
         </div>
         <div id="experience" class="tab-pane fade tab-item">
           <%= image_tag('quote.png', class: "skill-show-icon") %>
-          <%= @skill.description %>
+
+           <p><%= @skill.teacher.bio %></p>
         </div>
       </div>
        <%= link_to "Get in touch with #{@skill.teacher.first_name}", '#', class: "btn btn-default", id: "btn-space" %>
