@@ -9,6 +9,7 @@
     <% else %>
       <p><%= @user.bio %></p>
     <% end %>
+     <%= link_to "Add A New Skill", new_skill_path, class: "btn btn-info", id: "profile-btn"%>
   </div>
 
   <div class="user-profile-lessons">

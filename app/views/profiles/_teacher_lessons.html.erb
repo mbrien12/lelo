@@ -2,9 +2,9 @@
 
 
 <ul class="nav nav-tabs">
-  <li><a data-toggle="tab" href="#pending">Pending</a></li>
-  <li><a data-toggle="tab" href="#confirmed">Confirmed</a></li>
-  <li><a data-toggle="tab" href="#completed">Completed</a></li>
+  <li><a data-toggle="tab" href="#pending">Requests</a></li>
+  <li><a data-toggle="tab" href="#confirmed">Upcoming Lessons</a></li>
+  <li><a data-toggle="tab" href="#completed">Completed Lessons</a></li>
 </ul>
 <div class="tab-content">
   <div id="pending" class="tab-pane fade in active">
@@ -40,14 +40,16 @@
           <div class="card-container-lesson">
             <% @lessons.each do |lesson|%>
               <% if lesson.status == "confirmed"%>
-                <div class="lesson-card-profile" >
-                  <%= image_tag small_user_photo(lesson.student), id: "student-photo"%>
-                  <p><%= lesson.student.name %></p>
-                  <p><%= "Lesson: #{lesson.name}" %></p>
-                  <p><%= "Date: #{lesson.date}" %></p>
-                <div class="lesson-confirmed"><p><%= lesson.status %></p></div>
-                  <%= link_to "Completed", lesson_path(lesson, status: "completed"), method: :patch, class: "btn btn-primary", id: "confirm-btn" %>
-                </div>
+               <%= link_to skill_path(lesson.skill) do %>
+                  <div class="lesson-card-profile" >
+                    <%= image_tag small_user_photo(lesson.student), id: "student-photo"%>
+                    <p><%= lesson.student.name %></p>
+                    <p><%= "Lesson: #{lesson.name}" %></p>
+                    <p><%= "Date: #{lesson.date}" %></p>
+                  <div class="lesson-confirmed"><p><%= lesson.status %></p></div>
+                    <%= link_to "Mark as completed", lesson_path(lesson, status: "completed"), method: :patch, class: "btn btn-primary", id: "confirm-btn" %>
+                  </div>
+                <% end %>
               <% end %>
             <% end %>
           </div>
@@ -61,21 +63,20 @@
         <% if @lessons.empty? %>
           <p>No bookings yet </p>
         <% else %>
-          <div class="card-container-lesson">
-            <% @lessons.each do |lesson|%>
-              <% if lesson.status == "completed"%>
+          <% @lessons.each do |lesson|%>
+            <% if lesson.status == "completed"%>
+             <%= link_to skill_path(lesson.skill) do %>
                 <div class="lesson-card-profile" >
                   <%= image_tag small_user_photo(lesson.student), id: "student-photo"%>
                   <p><%= lesson.student.name %></p>
                   <p><%= "Lesson: #{lesson.name}" %></p>
                   <p><%= "Date: #{lesson.date}" %></p>
-                <div class="lesson-confirmed"><p><%= lesson.status %></p></div>
                 </div>
               <% end %>
             <% end %>
-          </div>
-        <% end %>
-      </div>
+          <% end %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

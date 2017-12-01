@@ -1,7 +1,7 @@
 <h1>My lessons</h1>
 <ul class="nav nav-tabs">
   <li><a data-toggle="tab" href="#pending">Requested</a></li>
-  <li><a data-toggle="tab" href="#completed">Confirmed</a></li>
+  <li><a data-toggle="tab" href="#completed">Upcoming Lessons</a></li>
   <li><a data-toggle="tab" href="#menu3">Past lessons</a></li>
 </ul>
 
@@ -16,13 +16,15 @@
           <div>
             <% @lessons.each do |lesson|%>
               <% if lesson.status == "pending"%>
+               <%= link_to skill_path(lesson.skill) do %>
                 <div class="lesson-card-profile", >
-                  <%= image_tag small_user_photo(lesson.teacher), id: "student-photo"%>
-                  <p><%= "#{lesson.teacher.name}, #{lesson.skill.name} teacher"  %></p>
-                  <p><%= "Lesson: #{lesson.name}" %></p>
-                  <p><%= "Date: #{lesson.date}" %></p>
-                  <div class="lesson-status"><p><%= lesson.status %></p></div>
+                    <%= image_tag small_user_photo(lesson.teacher), id: "student-photo"%>
+                    <p><%= "#{lesson.teacher.name}, #{lesson.skill.name} teacher"  %></p>
+                    <p><%= "Lesson: #{lesson.name}" %></p>
+                    <p><%= "Date: #{lesson.date}" %></p>
+                    <div class="lesson-pending"><p><%= lesson.status %></p></div>
                 </div>
+                <% end %>
               <% end %>
             <% end %>
           </div>
@@ -35,44 +37,53 @@
   <div class="tab-content">
     <div role="tabpanel" class="tab-pane active no-border" id="status-lesson">
       <% if @lessons.empty? %>
-        <p>No bookings yet </p>
-      <% else %>
-        <div class="card-container-lesson">
-          <div class="activity">
-            <% @lessons.each do |lesson|%>
-              <% if lesson.status == "confirmed"%>
-                <div class="lesson-card-profile", >
-                  <%= image_tag small_user_photo(lesson.teacher), id: "student-photo"%>
+          <p>No bookings yet </p>
+        <% else %>
+          <div class="card-container-lesson">
+            <div class="activity">
+              <% @lessons.each do |lesson|%>
+                <% if lesson.status == "confirmed"%>
+                  <%= link_to skill_path(lesson.skill) do %>
+                    <div class="lesson-card-profile", >
+                    <%= image_tag small_user_photo(lesson.teacher), id: "student-photo"%>
                     <p><%= "#{lesson.teacher.name}, #{lesson.skill.name} teacher"  %></p>
-                  <p><%= "Lesson: #{lesson.name}" %></p>
-                  <p><%= "Date: #{lesson.date}" %></p>
-                <div class="lesson-status"><p><%= lesson.status %></p></div>
-                <%= link_to "Confirm", lesson_path(lesson, status: "confirmed"), method: :patch, class: "btn btn-primary", id: "confirm-btn" %>
-                </div>
+                    <p><%= "Lesson: #{lesson.name}" %></p>
+                    <p><%= "Date: #{lesson.date}" %></p>
+                    <div class="lesson-confirmed"><p><%= lesson.status %></p></div>
+                    </div>
+                  <% end %>
+                <% end %>
               <% end %>
-            <% end %>
+            </div>
           </div>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
-</div>
-    <div id="menu3" class="tab-pane fade">
-      <div class="card-container-lesson">
-          <div class="activity">
-            <% @lessons.each do |lesson|%>
-              <% if lesson.status == "completed"%>
-                <div class="lesson-card-profile", >
-                  <%= image_tag small_user_photo(lesson.teacher), id: "student-photo"%>
-                   <p><%= "#{lesson.teacher.name}, #{lesson.skill.name} teacher"  %></p>
-                  <p><%= "Lesson: #{lesson.name}" %></p>
-                  <p><%= "Date: #{lesson.date}" %></p>
-                   <%= link_to "Add a review", '#', class: "btn btn-info", id:'review-button' %>
-                </div>
-              <% end %>
-            <% end %>
-          </div>
+  <div id="menu3" class="tab-pane fade">
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane active no-border" id="status-lesson">
+        <% if @lessons.empty? %>
+            <p>No bookings yet </p>
+          <% else %>
+            <div class="card-container-lesson">
+              <div class="activity">
+                <% @lessons.each do |lesson|%>
+                  <% if lesson.status == "completed"%>
+                      <div class="lesson-card-profile", >
+                      <%= image_tag small_user_photo(lesson.teacher), id: "student-photo"%>
+                      <p><%= "#{lesson.teacher.name}, #{lesson.skill.name} teacher"  %></p>
+                      <p><%= "Lesson: #{lesson.name}" %></p>
+                      <p><%= "Date: #{lesson.date}" %></p>
+                      <%= link_to "Add a review", "#", class: "btn btn-info", id:'review-button' %>
+                      </div>
+                  <% end %>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
         </div>
+      </div>
     </div>
   </div>
 
