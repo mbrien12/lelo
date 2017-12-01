@@ -18,6 +18,12 @@ class Skill < ApplicationRecord
     return skills
   end
 
+  def average_rating
+   self.reviews.average(:rating).to_i
+  end
+
+
+
   private
 
   def get_address

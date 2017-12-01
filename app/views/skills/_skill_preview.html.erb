@@ -4,7 +4,9 @@
     <%= image_tag teacher_photo(skill)  %>
     <p><strong><%= skill.category %></strong></p>
     <p class="font-small">$<%= skill.price %>/hour</p>
-    <p class="font-small">Add rating here!</p>
+    <% "#{skill.average_rating}".to_i.times do %>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <% end %>
   </div>
   <div class="preview-right">
     <p> Hi I'm <%= skill.teacher.first_name %></p>
