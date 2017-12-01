@@ -1,0 +1,15 @@
+
+<div class="user-messages new-message hidden">
+  <%= simple_form_for(@message) do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs">
+      <%= f.input :message_text, label: "Send a message to #{User.find(target_user_id).name}" %>
+      <%= f.input :receiver_id, as: :hidden, input_html: { value: target_user_id } %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit %>
+    </div>
+  <% end %>
+</div>
