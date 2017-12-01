@@ -38,6 +38,20 @@
         </div>
       </div>
        <%= link_to "Get in touch with #{@skill.teacher.first_name}", '#', class: "btn btn-default", id: "btn-space" %>
+       <%= render 'messages/new-message', target_user_id: @skill.teacher.id %>
+
+  <% content_for(:after_js) do %>
+   <script>
+      $(document).ready(function() {
+        document.querySelector("#btn-space").addEventListener("click", (event) => {
+          event.preventDefault();
+          msg_div = $(".user-messages");
+          msg_div.toggleClass('hidden');
+          // msg_div.style.display = msg_div.style.display === 'none' ? 'block' : 'none';
+        });
+      });
+    </script>
+<% end %>
 
   </div>
   <div class="skill-show-reviews">

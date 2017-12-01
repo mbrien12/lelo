@@ -19,7 +19,7 @@ class SkillsController < ApplicationController
   # GET /skills/1.json
   def show
 
-
+  @message = Message.new
   @reviews =  @skill.reviews
 
 

@@ -1,4 +1,4 @@
-<div class="container messages-container">
+<div class="messages-container">
   <h1 class="text-center">My Messages</h1>
   <br>
   <br>
@@ -7,22 +7,22 @@
     <% user = User.find(user_id) %>
     <div class="user-messages">
       <div class="user-messages-deatils">
-        <div style="display:flex;padding:10px;align-items:center">
-          <div><%= image_tag photo_url(user), class: "avatar-large"%></div>
-          <div style="margin-left:10px;"><p><%= user.first_name %></p></div>
+        <div class="message-avatar-div">
+          <div style="margin-left:10px;"><%= image_tag photo_url(user), class: "avatar-large"%></div>
         </div>
         <div class="user-first-message">
-          <h8>Title</h8>
+          <h8 class="text-center"><strong><%= "#{user.name}'s messages" %></strong></h8>
+          <br>
           <p><%= array.first.message_text %></p>
         </div>
-        <div><%= array.first.created_at.strftime("%e %b, %y:%M") %></div>
+        <div class="message-date-div"><%= array.first.created_at.strftime("%e %b, %y:%M") %></div>
       </div>
       <div class="messages-div">
         <% array.each do |message| %>
           <div class="message-div">
-            <div><strong><%= message.sender == current_user ? "You" : user.first_name %></strong></div>
-            <div><%= message.message_text %></div>
-            <div><%= message.created_at.strftime("%e %b, %y:%M") %></div>
+            <div class="message-avatar-div"><strong><%= message.sender == current_user ? "You" : user.first_name %></strong></div>
+            <div class="user-first-message"><%= message.message_text %></div>
+            <div class="message-date-div"><%= message.created_at.strftime("%e %b, %y:%M") %></div>
           </div>
         <% end %>
       </div>
