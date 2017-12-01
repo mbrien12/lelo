@@ -1,6 +1,7 @@
 <div class="container messages-container">
-  <h1>Messages#index</h1>
-  <p>Find me in app/views/messages/index.html.erb</p>
+  <h1 class="text-center">My Messages</h1>
+  <br>
+  <br>
 
   <% @grouped_messages.each do |user_id, array| %>
     <% user = User.find(user_id) %>
@@ -27,7 +28,7 @@
       </div>
     </div>
  <% end %>
-<%= link_to 'New Message', new_message_path %>
+<%= link_to 'New Message', new_message_path, class: "btn btn-primary", style: "margin-left:50px;" %>
 </div>
 
 <% content_for(:after_js) do %>
