@@ -61,8 +61,13 @@
   padding: 20px;
 
   h4 {
-    margin-bottom: 50px;
+    margin-bottom: 30px;
   }
+}
+
+.average-rating {
+  font-weight: bold;
+  color:  $yellow;
 }
 
 
@@ -81,7 +86,6 @@
   font-style: italic;
   margin-top: 30px;
 }
-
 
 
 .review-name {
