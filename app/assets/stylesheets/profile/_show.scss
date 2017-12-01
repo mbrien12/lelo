@@ -3,8 +3,6 @@
   font-weight: lighter;
   display: grid;
   margin: 80px;
-  grid-template-columns: 350px 350px 350px;
-  grid-template-rows: 300px 300px 300px;
 }
 
 .user-profile-info-box{
@@ -29,3 +27,9 @@
 
 }
 
+#review-container{
+  margin-top: 100px;
+  h4 {
+    margin-bottom: 20px;
+  }
+}

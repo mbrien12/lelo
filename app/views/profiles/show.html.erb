@@ -14,15 +14,15 @@
   <div class="user-profile-lessons">
     <% if current_user.role == "teacher" %>
         <%= render 'teacher_lessons' %>
-    <% else %>
-        <%= render 'student_lessons' %>
     <% end %>
   </div>
 
   <div class="teacher-skills">
     <% if current_user.role == "teacher" %>
         <%= render 'teacher_skills' %>
-        <% end %>
+       <% else %>
+        <%= render 'student_lessons' %>
+      <% end %>
 
   </div>
 </div>

@@ -7,7 +7,7 @@
 
   <div class="skill-show-container">
       <h1><%= "Learn #{@skill.name} with #{@skill.teacher.first_name} " %></h1>
-    <p>Skill rating:
+    <p>Average rating:
     <i class="fa fa-star" aria-hidden="true"></i>
     <%= @skill.skill_rating %></p>
 
@@ -41,7 +41,7 @@
 
   </div>
   <div class="skill-show-reviews">
-  <h3>This is where the reviews will live</h3>
+    <%= render 'skills-reviews', reviews: @reviews %>
 </div>
 </div>
 

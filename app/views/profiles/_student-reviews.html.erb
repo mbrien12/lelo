@@ -1,0 +1,10 @@
+
+<% @lessons.each do |lesson| %>
+<% if lesson.status == "completed" %>
+  <%= render 'reviews-form', skill: lesson.skill, review: @review %>
+<% end %>
+<% end %>
+
+
+
+
