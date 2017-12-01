@@ -4,9 +4,8 @@
 
 .lesson-card-profile{
   margin: 15px;
-  display: grid;
-  grid-template-columns: 60px 126px 300px 164px 65px 130px;
-  grid-template-rows: 48px;
+  display: flex;
+  justify-content: space-between;
   border: 1px solid ;
   padding: 10px;
   border-color: #c9c7c7;
