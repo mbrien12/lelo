@@ -1,26 +1,45 @@
-<h1>Messages#index</h1>
-<p>Find me in app/views/messages/index.html.erb</p>
+<div class="container messages-container">
+  <h1 class="text-center">My Messages</h1>
+  <br>
+  <br>
 
+  <% @grouped_messages.each do |user_id, array| %>
+    <% user = User.find(user_id) %>
+    <div class="user-messages">
+      <div class="user-messages-deatils">
+        <div style="display:flex;padding:10px;align-items:center">
+          <div><%= image_tag photo_url(user), class: "avatar-large"%></div>
+          <div style="margin-left:10px;"><p><%= user.first_name %></p></div>
+        </div>
+        <div class="user-first-message">
+          <h8>Title</h8>
+          <p><%= array.first.message_text %></p>
+        </div>
+        <div><%= array.first.created_at.strftime("%e %b, %y:%M") %></div>
+      </div>
+      <div class="messages-div">
+        <% array.each do |message| %>
+          <div class="message-div">
+            <div><strong><%= message.sender == current_user ? "You" : user.first_name %></strong></div>
+            <div><%= message.message_text %></div>
+            <div><%= message.created_at.strftime("%e %b, %y:%M") %></div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+ <% end %>
+<%= link_to 'New Message', new_message_path, class: "btn btn-primary", style: "margin-left:50px;" %>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>You</th>
-      <th>Him/Her</th>
-      <th>Message</th>
-    </tr>
-  </thead>
+<% content_for(:after_js) do %>
+  <script>
 
-  <tbody>
-<% @messages.each do |message| %>
-      <tr>
-        <td><%= message.sender.email %></td>
-        <td><%= message.receiver.email %></td>
-        <td><%= message.message_text %></td>
-        <td><%= link_to "Show", message %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  document.querySelectorAll(".user-messages").forEach((user_div)=> {
+    user_div.addEventListener("click", (event) => {
+      msg_div = event.currentTarget.querySelector(".messages-div")
+      msg_div.style.display = msg_div.style.display === 'none' ? 'block' : 'none';
+    });
+  });
 
-<%= link_to 'New Message', new_message_path %>
+  </script>
+<% end %>

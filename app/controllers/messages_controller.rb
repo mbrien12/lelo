@@ -1,7 +1,8 @@
 class MessagesController < ApplicationController
 
   def index
-    @messages = Message.where(sender: current_user).or(Message.where(receiver: current_user)).order(:created_at)
+    messages = Message.where(sender_id: current_user).or(Message.where(receiver_id: current_user)).order(created_at: :desc)
+    @grouped_messages = message_grouping(messages)
   end
 
   def new
@@ -29,5 +30,17 @@ class MessagesController < ApplicationController
 
   def message_params
     params.require(:message).permit(:message_text, :receiver_id)
+  end
+
+  def message_grouping(messages)
+    g_m = Hash.new([].freeze)
+    messages.each do |message|
+      if message.sender_id != current_user.id
+        g_m[message.sender_id] += [message]
+      else
+        g_m[message.receiver_id] += [message]
+      end
+    end
+    return g_m
   end
 end
