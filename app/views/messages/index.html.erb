@@ -8,19 +8,20 @@
       <div class="user-messages-deatils">
         <div style="display:flex;padding:10px;align-items:center">
           <div><%= image_tag photo_url(user), class: "avatar-large"%></div>
-          <div style="margin-left:10px;"><p><%= user.name %></p></div>
+          <div style="margin-left:10px;"><p><%= user.first_name %></p></div>
         </div>
         <div class="user-first-message">
           <h8>Title</h8>
           <p><%= array.first.message_text %></p>
         </div>
-        <div><%= array.first.created_at %></div>
+        <div><%= array.first.created_at.strftime("%e %b, %y:%M") %></div>
       </div>
       <div class="messages-div">
         <% array.each do |message| %>
           <div class="message-div">
+            <div><strong><%= message.sender == current_user ? "You" : user.first_name %></strong></div>
             <div><%= message.message_text %></div>
-            <div><%= message.created_at %></div>
+            <div><%= message.created_at.strftime("%e %b, %y:%M") %></div>
           </div>
         <% end %>
       </div>
