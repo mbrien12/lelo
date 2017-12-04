@@ -31,6 +31,11 @@ class LessonsController < ApplicationController
 
 
     if @lesson.save
+      teacher = @skill.teacher
+      if !teacher.phone.nil?
+        client = Twilio::REST::Client.new ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_AUTH_TOKEN']
+        message = client.messages.create from: ENV['TWILIO_NUMBER'], to: teacher.phone, body: "Hello from Lealo!\nYou received a new #{@lesson.name} lesson request from #{@lesson.student.name}!"
+      end
       redirect_to profile_path(current_user), notice: "Your request has been sent"
     else
       p @lesson.errors.full_messages
