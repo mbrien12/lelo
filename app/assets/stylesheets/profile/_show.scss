@@ -40,6 +40,11 @@
 
   //-----------------------------MEETUP CARDS -----------------------------------------
 
+#meetup-container {
+  p {
+    margin-bottom: 50px;
+  }
+}
 
 .meetup-cards-container {
   display: grid;
@@ -60,6 +65,7 @@
     font-size: 18px;
     font-weight: bold;
     padding: 20px;
+
   }
 }
 
