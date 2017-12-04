@@ -1,3 +1,6 @@
+require 'open-uri'
+require 'json'
+
 class ProfilesController < ApplicationController
   def show
     @user = User.find(params[:id])
@@ -10,5 +13,21 @@ class ProfilesController < ApplicationController
     else
       @lessons = @user.lessons
     end
+
+    @lessons.each do |lesson|
+      @lesson = lesson
+
+    end
+
+    # Meetup API call to get related topics and location for learners
+
+    if !@lesson.nil?
+      @response = open(
+      "https://api.meetup.com/find/groups?&sign=true&photo-host=public&lon=#{@lesson.skill.longitude}&text=#{@lesson.skill.name}&radius=5&lat=#{@lesson.skill.latitude}&page=6&key=#{ENV['MEETUP_KEY']}")
+      @json = JSON.parse(@response.read)
+    end
+
   end
 end
+
+

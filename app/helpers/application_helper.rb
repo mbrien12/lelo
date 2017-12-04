@@ -15,5 +15,16 @@ module ApplicationHelper
     user.photo.url(:thumb) || user.facebook_picture_url || "http://placehold.it/30x30"
   end
 
+  def meetup_image(group)
+
+    if !group['key_photo'].nil?
+      "#{group['key_photo']['photo_link']}"  || 'http://cdn.embed.ly/providers/logos/meetup.png'
+    else
+        'http://cdn.embed.ly/providers/logos/meetup.png'
+    end
+
+  end
+
+
 end
 
