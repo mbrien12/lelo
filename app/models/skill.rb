@@ -5,6 +5,7 @@ class Skill < ApplicationRecord
   has_many :reviews
   geocoded_by :location
   after_validation :get_address, if: :location_changed?
+  monetize :price_cents
 
   def self.search(params)
     skills = self.joins(:teacher).all
