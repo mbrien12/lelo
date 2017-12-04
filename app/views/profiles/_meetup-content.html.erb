@@ -1,16 +1,13 @@
-<% require 'date' %>
 
-<h3>Testing meetup content...</h3>
+<h3>Find a learning buddy near you...</h3>
 
+<p>Find all the nearest meetups related to your lessons.</p>
 
-
-<%json['results'].each do |result| %>
-<ul>
-  <li><%= result['name'] %></li>
-  <% sec = (result['time'].to_f / 1000).to_s %>
-  <li><%= Date.strptime(sec, '%s').strftime("%m-%d-%y") %></li>
-  </ul>
+<div class="meetup-cards-container">
+<%json.each do |group| %>
+  <div class="meetup-card" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.2)), url('<%= group['key_photo']['photo_link'] %>');">
+    <p><%= group['name'] %></p>
+    <!-- <li><%= group['link'] %></li> -->
+  </div>
 <% end %>
-
-
-
+</div>

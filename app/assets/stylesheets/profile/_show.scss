@@ -37,3 +37,26 @@
  #profile-btn{
     margin: 20px;
   }
+
+  //-----------------------------MEETUP CARDS -----------------------------------------
+
+
+.meetup-cards-container {
+  display: grid;
+  grid-template-columns: 250px 250px 250px;
+  grid-template-rows: 250px 250px 250px;
+  grid-column-gap: 30px;
+  grid-row-gap: 30px;
+  margin-top: 40px;
+}
+
+.meetup-card {
+  background-size: cover !important;
+  background-position: center;
+   p {
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px;
+  }
+}
