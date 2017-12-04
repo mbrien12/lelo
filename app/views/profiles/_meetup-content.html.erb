@@ -1,0 +1,16 @@
+<% require 'date' %>
+
+<h3>Testing meetup content...</h3>
+
+
+
+<%json['results'].each do |result| %>
+<ul>
+  <li><%= result['name'] %></li>
+  <% sec = (result['time'].to_f / 1000).to_s %>
+  <li><%= Date.strptime(sec, '%s').strftime("%m-%d-%y") %></li>
+  </ul>
+<% end %>
+
+
+
