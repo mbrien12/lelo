@@ -1,13 +1,14 @@
 
 <h3>Find a learning buddy near you...</h3>
 
-<p>Find all the nearest meetups related to your lessons.</p>
+<p>Explore local meetups related to your lessons to help you take your learning further.</p>
 
 <div class="meetup-cards-container">
-<%json.each do |group| %>
-  <div class="meetup-card" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.2)), url('<%= group['key_photo']['photo_link'] %>');">
-    <p><%= group['name'] %></p>
-    <!-- <li><%= group['link'] %></li> -->
-  </div>
-<% end %>
+  <%json.each do |group| %>
+    <%= link_to(group['link'], target: :_blank )do %>
+      <div class="meetup-card" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.2)), url('<%= group['key_photo']['photo_link'] %>');">
+          <p><%= group['name'] %></p>
+      </div>
+    <% end %>
+  <% end %>
 </div>
