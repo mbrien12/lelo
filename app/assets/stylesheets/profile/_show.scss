@@ -37,3 +37,47 @@
  #profile-btn{
     margin: 20px;
   }
+
+  //-----------------------------MEETUP CARDS -----------------------------------------
+
+#meetup-container {
+  p {
+    margin-bottom: 50px;
+  }
+}
+
+.meetup-cards-container {
+  display: grid;
+  grid-template-columns: 250px 250px 250px;
+  grid-template-rows: 250px 250px 250px;
+  grid-column-gap: 30px;
+  grid-row-gap: 150px;
+  margin-top: 40px;
+}
+
+.meetup-card {
+  background-size: cover !important;
+  background-position: center;
+  height: 100%;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+   p {
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 20px;
+
+  }
+}
+
+.meetup-events {
+  background-color: white;
+  color: black;
+  height: 100px;
+  padding: 10px;
+  font-size: 15px;
+}
+
+.font-grey {
+  color: gray;
+  font-size: 15px;
+}
