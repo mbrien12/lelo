@@ -6,7 +6,14 @@ User.destroy_all
 
 
 
-puts "Creating 2 teachers with 1 skill each"
+puts "Creating millions of seeds"
+
+# 100.times do {
+#   user = User.create(
+#     email:"teacher"
+
+#     )
+# }
 
   teacher1 = User.create(
     email: "teacher1@teacher1.com",
