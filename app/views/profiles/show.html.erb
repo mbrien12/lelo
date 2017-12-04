@@ -29,3 +29,19 @@
 
   </div>
 </div>
+
+    <% content_for(:after_js) do %>
+   <script>
+      $(document).ready(function() {
+        document.querySelectorAll(".btn-msg").forEach((button) => {
+          button.addEventListener("click", (event) => {
+            event.preventDefault();
+            msg_div = $("#message-for-lesson-" + event.target.getAttribute('data-lesson-id'));
+            msg_div.toggleClass('hidden');
+          // msg_div.style.display = msg_div.style.display === 'none' ? 'block' : 'none';
+          });
+        });
+      });
+
+    </script>
+    <% end %>
