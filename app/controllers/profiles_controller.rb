@@ -18,14 +18,13 @@ class ProfilesController < ApplicationController
     end
 
     # Meetup API call to get related topics and location for learners
-    @key = "12422e59366e34213a1d2c1836652d19"
 
     @response = open(
-    "https://api.meetup.com/find/groups?&sign=true&photo-host=public&lon=#{@lesson.skill.longitude}&text=#{@lesson.skill.name}&radius=5&lat=#{@lesson.skill.latitude}&page=6&key=#{@key}")
+    "https://api.meetup.com/find/groups?&sign=true&photo-host=public&lon=#{@lesson.skill.longitude}&text=#{@lesson.skill.name}&radius=5&lat=#{@lesson.skill.latitude}&page=&key=#{ENV['MEETUP_KEY']}")
     @json = JSON.parse(@response.read)
-
 
   end
 end
 
+#{ENV['MEETUP_KEY']}
 
