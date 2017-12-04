@@ -11,9 +11,24 @@ class LessonsController < ApplicationController
     @lesson.status = "pending"
     @lesson.paid = false
     @lesson.student_id = current_user.id
-
+    @lesson.price = @lesson.skill.price
 
     @skill = @lesson.skill
+
+    customer = Stripe::Customer.create(
+      source: params[:stripeToken],
+      email:  params[:stripeEmail]
+    )
+
+    charge = Stripe::Charge.create(
+      customer:     customer.id,   # You should store this customer id and re-use it.
+      amount:       @lesson.price_cents,
+      description:  "Payment for lesson #{@lesson.name} - #{@lesson.id}",
+      currency:     @lesson.price.currency,
+      capture: false
+    )
+    @lesson.charge_id = charge.id
+
 
     if @lesson.save
       redirect_to @skill, notice: 'Lesson was successfully requested '
@@ -25,6 +40,13 @@ class LessonsController < ApplicationController
 
   def update
    if params[:status] == "confirmed"
+    charge = Stripe::Charge.retrieve(@lesson.charge_id)
+    response = charge.capture
+
+    if response.status == "succeeded"
+      @lesson.paid = true
+    end
+
      @lesson.status = "confirmed"
     elsif params[:status] == "completed"
       @lesson.status = "completed"
