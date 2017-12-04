@@ -31,7 +31,7 @@ class LessonsController < ApplicationController
 
 
     if @lesson.save
-      redirect_to @skill, notice: 'Lesson was successfully requested '
+      redirect_to profile_path(current_user), notice: "Your request has been sent"
     else
       p @lesson.errors.full_messages
       render 'skills/show'
@@ -46,6 +46,7 @@ class LessonsController < ApplicationController
     if response.status == "succeeded"
       @lesson.paid = true
     end
+
 
      @lesson.status = "confirmed"
     elsif params[:status] == "completed"
