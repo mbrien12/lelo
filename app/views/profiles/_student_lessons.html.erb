@@ -90,8 +90,9 @@
 
     <div id="review-container"> </div>
     <div id="meetup-container">
-
-      <%= render 'meetup-content', json: @json %>
+       <% if !@lesson.nil? %>
+        <%= render 'meetup-content', json: @json %>
+      <% end %>
     </div>
 
 
