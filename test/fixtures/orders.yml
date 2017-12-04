@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  state: MyString
+  lesson: one
+  amount: 
+  payment: 
+
+two:
+  state: MyString
+  lesson: two
+  amount: 
+  payment: 
