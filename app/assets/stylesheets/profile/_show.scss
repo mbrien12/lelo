@@ -46,7 +46,7 @@
   grid-template-columns: 250px 250px 250px;
   grid-template-rows: 250px 250px 250px;
   grid-column-gap: 30px;
-  grid-row-gap: 30px;
+  grid-row-gap: 150px;
   margin-top: 40px;
 }
 
@@ -59,6 +59,11 @@
     color: white;
     font-size: 18px;
     font-weight: bold;
-    margin: 10px;
+    padding: 20px;
   }
+}
+
+.meetup-events {
+  background-color: white;
+  color: black;
 }
