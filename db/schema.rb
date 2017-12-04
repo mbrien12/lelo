@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171204140733) do
+ActiveRecord::Schema.define(version: 20171204162309) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,12 +21,13 @@ ActiveRecord::Schema.define(version: 20171204140733) do
     t.string "name"
     t.string "description"
     t.boolean "paid"
-    t.string "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "student_id"
     t.date "date"
     t.string "status"
+    t.integer "price_cents", default: 0, null: false
+    t.string "charge_id"
     t.index ["skill_id"], name: "index_lessons_on_skill_id"
     t.index ["student_id"], name: "index_lessons_on_student_id"
   end
@@ -56,7 +57,6 @@ ActiveRecord::Schema.define(version: 20171204140733) do
 
   create_table "skills", force: :cascade do |t|
     t.string "name"
-    t.integer "price"
     t.text "description"
     t.string "availability"
     t.string "category"
@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(version: 20171204140733) do
     t.float "latitude"
     t.float "longitude"
     t.string "formatted_address"
+    t.integer "price_cents", default: 0, null: false
     t.index ["teacher_id"], name: "index_skills_on_teacher_id"
   end
 
