@@ -1,7 +1,6 @@
 
 <div class="profile-container">
   <div class="user-profile-info-box">
-    <h3><%="#{@user.role.capitalize} Profile"%></h3>
     <h1><%= @user.name%></h1>
     <%= image_tag photo_url(@user), id: "profile-photo"%>
     <% if @user.bio == "" %>
@@ -9,9 +8,24 @@
     <% else %>
     <p><%= @user.bio %></p>
     <% end %>
+
     <% if current_user.role == "teacher" %>
+        <div class="teacher-payments">
+        <h4>Total payments</h4>
+          <% if @total_price.nil? %>
+             <p> No payments yet :( Promote your lessons to encourage a booking! </p>
+          <% else %>
+            <%= image_tag('price.png', class: "skill-show-icon") %>
+             $ <%= @total_price %>
+           <% end %>
+        </div>
+    <% end %>
+
+     <% if current_user.role == "teacher" %>
     <%= link_to "Add A New Skill", new_skill_path, class: "btn btn-info", id: "profile-btn"%>
     <% end %>
+
+
   </div>
 
   <div class="user-profile-lessons">
