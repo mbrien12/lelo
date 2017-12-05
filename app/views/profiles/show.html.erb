@@ -8,16 +8,19 @@
     <% else %>
     <p><%= @user.bio %></p>
     <% end %>
-    <% if current_user.role == "teacher" %>
-    <%= link_to "Add A New Skill", new_skill_path, class: "btn btn-info", id: "profile-btn"%>
-    <% end %>
 
     <% if current_user.role == "teacher" %>
         <div class="teacher-payments">
         <h4>Total payments</h4>
-         <%= @total_price %>
+        <%= image_tag('price.png', class: "skill-show-icon") %>
+        $ <%= @total_price %>
         </div>
     <% end %>
+
+     <% if current_user.role == "teacher" %>
+    <%= link_to "Add A New Skill", new_skill_path, class: "btn btn-info", id: "profile-btn"%>
+    <% end %>
+
 
   </div>
 
