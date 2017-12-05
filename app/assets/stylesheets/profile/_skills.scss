@@ -24,8 +24,9 @@
 
 .skill-card-profile:hover{
     border-color: $green;
-    h3{ color: $green;}
+    h3, h4{ color: $green;}
     .fa-grav{color: $green;}
+    .skill-photo{ opacity: .3;}
   }
 
 .fa-grav{
@@ -34,6 +35,19 @@
   grid-row: 2 / 3;
 }
 
+.card-container-student{
+  display: flex;
+  h3{ color: #848380; }
+  h4{
+    font-size: 10px;
+    color: #bcbbb7;
+    margin: 20px;
+  }
+}
 
 
-
+.skill-photo{
+  margin: 15px;
+  opacity: .9;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.2);
+}
