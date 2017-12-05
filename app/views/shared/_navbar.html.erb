@@ -22,14 +22,16 @@
           <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
-              <%= link_to profile_path(current_user) do %>
-                <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
+                <%= link_to skills_path do %>
+                <i class="fa fa-home"></i>  <%= t(".profile", default: "Find a teacher") %>
               <% end %>
+
             </li>
             <li>
-              <%= link_to "#" do %>
-                <i class="fa fa-home"></i>  <%= t(".profile", default: "Home") %>
+               <%= link_to profile_path(current_user) do %>
+                <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
               <% end %>
+
             </li>
             <li>
               <%= link_to destroy_user_session_path, method: :delete do %>

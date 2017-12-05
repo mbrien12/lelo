@@ -9,9 +9,11 @@ class User < ApplicationRecord
   has_many :reviews, foreign_key: :student_id
   has_many :messages, foreign_key: :sender_id
   has_many :messages, foreign_key: :receiver_id
+  validates :role, inclusion: { in: ["teacher", "student"] }
   mount_uploader :photo, PhotoUploader
 
-  def self.find_for_facebook_oauth(auth)
+
+  def self.find_for_facebook_oauth(auth, role)
     user_params = auth.slice(:provider, :uid)
     user_params.merge! auth.info.slice(:email, :first_name, :last_name)
     user_params[:facebook_picture_url] = auth.info.image
@@ -26,6 +28,7 @@ class User < ApplicationRecord
     else
       user = User.new(user_params)
       user.password = Devise.friendly_token[0,20]  # Fake password for validation
+      user.role = role
       user.save
     end
 
