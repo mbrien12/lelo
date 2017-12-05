@@ -17,6 +17,8 @@
   <div class="user-profile-lessons">
     <% if current_user.role == "teacher" %>
     <%= render 'teacher_lessons' %>
+    <% else %>
+    <%= render 'student_lessons' %>
     <% end %>
   </div>
 
@@ -24,7 +26,7 @@
     <% if current_user.role == "teacher" %>
     <%= render 'teacher_skills' %>
     <% else %>
-    <%= render 'student_lessons' %>
+    <%= render 'student_skills' %>
     <% end %>
 
   </div>

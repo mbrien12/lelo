@@ -17,7 +17,7 @@
             <% @lessons.each do |lesson|%>
             <% if lesson.status == "pending"%>
             <div class="lesson-card-profile", >
-              <%= image_tag small_user_photo(lesson.teacher), id: "student-photo"%>
+              <%= image_tag small_user_photo(lesson.teacher), class: "student-photo"%>
               <p><%= "#{lesson.teacher.name}, #{lesson.skill.name} teacher"  %></p>
                <p><%= link_to "Lesson: #{lesson.name}", skill_path(lesson.skill)%></p>
               <p><%= "Date: #{lesson.date}" %></p>
@@ -44,7 +44,7 @@
             <% @lessons.each do |lesson|%>
             <% if lesson.status == "confirmed"%>
             <div class="lesson-card-profile", >
-              <%= image_tag small_user_photo(lesson.teacher), id: "student-photo"%>
+              <%= image_tag small_user_photo(lesson.teacher), class: "student-photo"%>
               <p><%= "#{lesson.teacher.name}, #{lesson.skill.name} teacher"  %></p>
               <p><%= link_to "Lesson: #{lesson.name}", skill_path(lesson.skill)%></p>
               <p><%= "Date: #{lesson.date}" %></p>
@@ -71,7 +71,7 @@
             <% @lessons.each do |lesson|%>
             <% if lesson.status == "completed"%>
             <div class="lesson-card-profile", >
-              <%= image_tag small_user_photo(lesson.teacher), id: "student-photo"%>
+              <%= image_tag small_user_photo(lesson.teacher), class: "student-photo"%>
               <p><%= "#{lesson.teacher.name}, #{lesson.skill.name} teacher"  %></p>
               <p><%= link_to "Lesson: #{lesson.name}", skill_path(lesson.skill)%></p>
               <p><%= "Date: #{lesson.date}" %></p>

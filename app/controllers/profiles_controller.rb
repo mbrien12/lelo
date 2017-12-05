@@ -14,6 +14,11 @@ class ProfilesController < ApplicationController
       @lessons = @user.lessons
     end
 
+    skills = []
+    lessons = @user.lessons
+    lessons.each { |lesson| skills << lesson.skill }
+    @unique_skills = skills.uniq
+
     # Meetup API call to get related topics and location for learners
 
     @lessons.each do |lesson|
