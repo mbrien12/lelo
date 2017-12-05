@@ -1,0 +1,12 @@
+<h3>Book It Again!</h3>
+  <div class="card-container-student">
+    <% @unique_skills.each do |skill|%>
+      <%= link_to skill_path(skill) do %>
+        <div class="skill-card-profile", >
+          <%= image_tag small_user_photo(skill.teacher), class: "student-photo skill-photo"%>
+          <h3><%= "#{skill.name} with #{skill.teacher.first_name} " %></h3>
+          <h4><%= "$#{skill.price}" %></h4>
+        </div>
+        <% end %>
+    <% end %>
+  </div>
