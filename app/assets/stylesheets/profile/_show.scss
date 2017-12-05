@@ -36,9 +36,14 @@
     margin: 20px;
   }
 
-  .test {
-    height: 500px;
+  .no-lessons {
     background-color: white;
+    border-radius: 7px;
+    padding: 50px;
+
+    p {
+      margin-bottom: 20px;
+    }
   }
 
 
