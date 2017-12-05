@@ -1,52 +1,28 @@
 require 'faker'
 
 puts 'Cleaning database...'
+Review.destroy_all
+Message.destroy_all
 Skill.destroy_all
 User.destroy_all
 
 
 
-puts "Creating 2 teachers with 1 skill each"
+googleAddresses = JSON.parse(open("db/google_addresses.json").read)
+teachers = JSON.parse(open("db/random_teachers.json").read)['results']
 
-  teacher1 = User.create(
-    email: "teacher1@teacher1.com",
-    password: Faker::Internet.password,
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    location: "Nex, Gloria, Rio",
-    latitude: -43.17809,
-    longitude: 22.92084,
-    remote_photo_url: "https://assets.entrepreneur.com/content/3x2/1300/20150406145944-dos-donts-taking-perfect-linkedin-profile-picture-selfie-mobile-camera-2.jpeg",
-    role: "teacher",
-    bio: "Hello I'm a teacher"
-    )
+googleAddresses.each_with_index do |address,i|
+  teacher = teachers[i]
+  t = Teacher.new
+  (
+    email: teacher['email']
+    password: '123456'
+    frist_name: teacher['name']['frist_name']
+    last_name: teacher['name']['last_name']
+    remote_photo_url: teacher['picture']['large']
+  )
 
-  teacher1.skills.create(
-    name: "Ruby",
-    description: "I can teach you how to create a Ruby on Rails application",
-    price: 10,
-    category: "Programming"
-    )
-
-  teacher2 = User.create(
-    email: "teacher2@teacher2.com",
-    password: Faker::Internet.password,
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    location: "Copacabana beach, Rio",
-    latitude: 43.1822416,
-    longitude: 22.96944,
-    remote_photo_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJFRuAejYIvKte1YL7eTyYc-szQKEDtOTtQlPOPWs6QtkHy3T_eg",
-    role: "teacher",
-    bio: "Hello I'm another teacher"
-    )
-
-   teacher2.skills.create(
-    name: "Guitar lessons",
-    description: "I'm a professional guitar player, come jam with me to improve your skills!",
-    price: 8,
-    category: "Music"
-    )
+  t.save
 
 
-
+end
