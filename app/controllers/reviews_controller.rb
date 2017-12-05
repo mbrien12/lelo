@@ -1,6 +1,11 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:show]
 
+  def new
+    @lesson = Lesson.find(params[:lesson_id])
+    @review = Review.new
+  end
+
   def index
     @reviews = Review.all
   end

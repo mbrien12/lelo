@@ -69,18 +69,21 @@
         <div class="card-container-lesson">
           <div class="activity">
             <% @lessons.each do |lesson|%>
-            <% if lesson.status == "completed"%>
-            <div class="lesson-card-profile", >
-              <%= image_tag small_user_photo(lesson.teacher), id: "student-photo"%>
-              <p><%= "#{lesson.teacher.name}, #{lesson.skill.name} teacher"  %></p>
-              <p><%= "Lesson: #{lesson.name}" %></p>
-              <p><%= "Date: #{lesson.date}" %></p>
-              <%= link_to "Add a review", "#", class: "btn btn-info", id:'review-button' %>
+
+            <% if lesson.status == "completed" %>
+
+                <div class="lesson-card-profile", >
+                  <%= image_tag small_user_photo(lesson.teacher), id: "student-photo"%>
+                  <p><%= "#{lesson.teacher.name}, #{lesson.skill.name} teacher"  %></p>
+                  <p><%= "Lesson: #{lesson.name}" %></p>
+                  <p><%= "Date: #{lesson.date}" %></p>
+                    <%= link_to "Add a review", new_lesson_review_path(lesson.id), class: "btn btn-info", id:'review-button', remote: true, method: :get %>
+
+                  </div>
+                <% end %>
+              <% end %>
             </div>
-            <% end %>
-            <% end %>
           </div>
-        </div>
         <% end %>
       </div>
     </div>
@@ -88,7 +91,10 @@
 </div>
 
 
-    <div id="review-container"> </div>
+    <div id="review-container">
+
+    </div>
+
     <div id="meetup-container">
        <% if !@lesson.nil? %>
         <%= render 'meetup-content', json: @json %>
@@ -96,21 +102,6 @@
     </div>
 
 
-
-<% content_for(:after_js) do %>
-<script>
-
-  const reviewButton = document.getElementById("review-button");
-  const reviewContainer = document.getElementById("review-container");
-
-  const showReviewForm = (event) => {
-    reviewContainer.innerHTML = '<%= j render 'student-reviews' %>'
-  }
-
-  reviewButton.addEventListener("click", showReviewForm);
-
-</script>
-<% end %>
 
 
 
