@@ -14,12 +14,11 @@ class ProfilesController < ApplicationController
       @lessons = @user.lessons
     end
 
+    # Meetup API call to get related topics and location for learners
+
     @lessons.each do |lesson|
       @lesson = lesson
-
     end
-
-    # Meetup API call to get related topics and location for learners
 
     if !@lesson.nil?
       @response = open(

@@ -69,18 +69,17 @@
         <div class="card-container-lesson">
           <div class="activity">
             <% @lessons.each do |lesson|%>
-            <% if lesson.status == "completed"%>
+
+            <% if lesson.status == "completed" %>
+
                 <div class="lesson-card-profile", >
                   <%= image_tag small_user_photo(lesson.teacher), id: "student-photo"%>
                   <p><%= "#{lesson.teacher.name}, #{lesson.skill.name} teacher"  %></p>
                   <p><%= "Lesson: #{lesson.name}" %></p>
                   <p><%= "Date: #{lesson.date}" %></p>
-                  <% if !lesson.skill.reviews.nil? %>
                     <%= link_to "Add a review", new_lesson_review_path(lesson.id), class: "btn btn-info", id:'review-button', remote: true, method: :get %>
-                  <% else %>
-                    <p class="font-grey">Reviewed 👍</p>
-                  <% end %>
-                 </div>
+
+                  </div>
                 <% end %>
               <% end %>
             </div>
