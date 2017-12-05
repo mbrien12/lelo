@@ -292,8 +292,8 @@ DEPENDENCIES
   simple_form
   spring
   spring-watcher-listen (~> 2.0.0)
-  twilio-ruby
   stripe
+  twilio-ruby
   uglifier
   web-console (>= 3.3.0)
 

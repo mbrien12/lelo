@@ -44,7 +44,7 @@
         </div>
       </div>
        <%= link_to "Get in touch with #{@skill.teacher.first_name}", '#', class: "btn btn-default", id: "btn-space" %>
-       <%= render 'messages/new-message', target_user_id: @skill.teacher.id %>
+       <%= render 'messages/new-message', target_user_id: @skill.teacher.id, lesson_id: nil %>
 
   <% content_for(:after_js) do %>
    <script>
