@@ -14,10 +14,19 @@ class ProfilesController < ApplicationController
       @lessons = @user.lessons
     end
 
+
     skills = []
     lessons = @user.lessons
     lessons.each { |lesson| skills << lesson.skill }
     @unique_skills = skills.uniq
+
+    @total_price = 0
+    @lessons.each do |lesson|
+      if lesson.status == "completed"
+        @total_price += lesson.price_cents
+      end
+    end
+
 
     # Meetup API call to get related topics and location for learners
 
