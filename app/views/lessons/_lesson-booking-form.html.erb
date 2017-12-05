@@ -17,7 +17,7 @@
       <input type="hidden" name="lesson[status]" value="pending">
     </div>
     <p>Set up payment and send a request to your teacher</p>
-    <p4>You will not be charged until the lesson is confirmed</p4>
+    <p>You will not be charged until the lesson is confirmed</p>
       <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
         data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
         data-name="Lesson <%= @skill.name%>"

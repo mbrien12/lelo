@@ -1,4 +1,4 @@
-<h1>My lessons</h1>
+<h3>My lessons</h3>
 <% if @lessons.empty? %>
 <div class="no-lessons">
   <p>You haven't booked any lessons yet :(</p>
@@ -80,6 +80,7 @@
               <p><%= "Date: #{lesson.date}" %></p>
                <%= link_to "Add a review", new_lesson_review_path(lesson.id), class: "btn btn-info", id:'review-button', remote: true, method: :get %>
                   </div>
+                      <div id="review-container"></div>
                 <% end %>
               <% end %>
             </div>
@@ -89,13 +90,6 @@
   </div>
   <% end %>
 </div>
-
-
-
-
-    <div id="review-container">
-
-    </div>
 
     <div id="meetup-container">
        <% if !@lesson.nil? %>
