@@ -1,8 +1,17 @@
 
   const reviewContainer = document.getElementById("review-container");
 
+  const reviewButton = document.getElementById("review-button")
+
   reviewContainer.innerHTML = "<%= j render 'profiles/reviews-form', skill: @lesson.skill, review: @review %>"
 
-  // reviewContainer.classList.add("hide")
+   const hideReview = (event) => {
+        reviewContainer.classList.toggle("hidden");
+      }
+
+  reviewButton.addEventListener('click', hideReview)
+
+
+
 
 
