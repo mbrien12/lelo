@@ -12,8 +12,12 @@
     <% if current_user.role == "teacher" %>
         <div class="teacher-payments">
         <h4>Total payments</h4>
-        <%= image_tag('price.png', class: "skill-show-icon") %>
-        $ <%= @total_price %>
+          <% if @total_price.nil? %>
+             <p> No payments yet :( Promote your lessons to encourage a booking! </p>
+          <% else %>
+            <%= image_tag('price.png', class: "skill-show-icon") %>
+             $ <%= @total_price %>
+           <% end %>
         </div>
     <% end %>
 
