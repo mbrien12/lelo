@@ -77,7 +77,11 @@
                   <p><%= "#{lesson.teacher.name}, #{lesson.skill.name} teacher"  %></p>
                   <p><%= "Lesson: #{lesson.name}" %></p>
                   <p><%= "Date: #{lesson.date}" %></p>
+
+                  <% unless lesson.skill.reviews.where(student_id: current_user.id).any?  %>
                     <%= link_to "Add a review", new_lesson_review_path(lesson.id), class: "btn btn-info", id:'review-button', remote: true, method: :get %>
+                    <% end %>
+
 
                   </div>
                 <% end %>
