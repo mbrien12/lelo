@@ -1,8 +1,10 @@
 
-<h4>Leave a review for <%= skill.teacher.name %> and their skills in teaching <%= skill.name %></h4>
+<div class="reviews-form">
+  <h4>Leave a review for <%= skill.teacher.name %> and their skills in teaching <%= skill.name %></h4>
 
-<%= simple_form_for([ skill, review ]) do |form| %>
-  <%= form.input :comment, as: :text %>
-  <%= form.input :rating %>
-  <%= form.button :submit %>
-<% end %>
+  <%= simple_form_for([ skill, review ]) do |form| %>
+    <%= form.input :comment, as: :text %>
+    <%= form.input :rating %>
+    <%= form.button :submit %>
+  <% end %>
+</div>
