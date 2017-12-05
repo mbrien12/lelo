@@ -1,8 +1,12 @@
+
+
 .profile-container{
   font-family: $body-font;
   font-weight: lighter;
   display: grid;
   margin: 80px;
+  min-height: 60vh;
+
 }
 
 .user-profile-info-box{
@@ -25,13 +29,21 @@
 .teacher-skills{
   grid-column: 2 / 4;
   grid-row: 1 / 2;
-
 }
-
 
 
  #profile-btn{
     margin: 20px;
+  }
+
+  .no-lessons {
+    background-color: white;
+    border-radius: 7px;
+    padding: 50px;
+
+    p {
+      margin-bottom: 20px;
+    }
   }
 
 

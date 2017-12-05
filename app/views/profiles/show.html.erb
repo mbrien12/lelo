@@ -4,7 +4,7 @@
     <h1><%= @user.name%></h1>
     <%= image_tag photo_url(@user), id: "profile-photo"%>
     <% if @user.bio == "" %>
-    <p>no bio yet, tell us about yourself!</p>
+    <p>No bio yet, tell us about yourself!</p>
     <% else %>
     <p><%= @user.bio %></p>
     <% end %>
