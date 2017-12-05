@@ -16,15 +16,15 @@
           <div>
             <% @lessons.each do |lesson|%>
             <% if lesson.status == "pending"%>
-            <%= link_to skill_path(lesson.skill) do %>
             <div class="lesson-card-profile", >
               <%= image_tag small_user_photo(lesson.teacher), id: "student-photo"%>
               <p><%= "#{lesson.teacher.name}, #{lesson.skill.name} teacher"  %></p>
-              <p><%= "Lesson: #{lesson.name}" %></p>
+               <p><%= link_to "Lesson: #{lesson.name}", skill_path(lesson.skill)%></p>
               <p><%= "Date: #{lesson.date}" %></p>
               <div class="lesson-pending"><p><%= lesson.status %></p></div>
+              <%= link_to "Message: #{lesson.teacher.first_name}", '#', class: "btn btn-primary btn-msg", data: { lesson_id: lesson.id } %>
             </div>
-            <% end %>
+            <%= render 'messages/new-message', target_user_id: lesson.teacher.id, lesson_id: lesson.id %>
             <% end %>
             <% end %>
           </div>
@@ -43,15 +43,15 @@
           <div class="activity">
             <% @lessons.each do |lesson|%>
             <% if lesson.status == "confirmed"%>
-            <%= link_to skill_path(lesson.skill) do %>
             <div class="lesson-card-profile", >
               <%= image_tag small_user_photo(lesson.teacher), id: "student-photo"%>
               <p><%= "#{lesson.teacher.name}, #{lesson.skill.name} teacher"  %></p>
-              <p><%= "Lesson: #{lesson.name}" %></p>
+              <p><%= link_to "Lesson: #{lesson.name}", skill_path(lesson.skill)%></p>
               <p><%= "Date: #{lesson.date}" %></p>
               <div class="lesson-confirmed"><p><%= lesson.status %></p></div>
+              <%= link_to "Message: #{lesson.teacher.first_name}", '#', class: "btn btn-primary btn-msg", data: { lesson_id: lesson.id } %>
             </div>
-            <% end %>
+            <%= render 'messages/new-message', target_user_id: lesson.teacher.id, lesson_id: lesson.id %>
             <% end %>
             <% end %>
           </div>
@@ -69,16 +69,13 @@
         <div class="card-container-lesson">
           <div class="activity">
             <% @lessons.each do |lesson|%>
-
-            <% if lesson.status == "completed" %>
-
-                <div class="lesson-card-profile", >
-                  <%= image_tag small_user_photo(lesson.teacher), id: "student-photo"%>
-                  <p><%= "#{lesson.teacher.name}, #{lesson.skill.name} teacher"  %></p>
-                  <p><%= "Lesson: #{lesson.name}" %></p>
-                  <p><%= "Date: #{lesson.date}" %></p>
-                    <%= link_to "Add a review", new_lesson_review_path(lesson.id), class: "btn btn-info", id:'review-button', remote: true, method: :get %>
-
+            <% if lesson.status == "completed"%>
+            <div class="lesson-card-profile", >
+              <%= image_tag small_user_photo(lesson.teacher), id: "student-photo"%>
+              <p><%= "#{lesson.teacher.name}, #{lesson.skill.name} teacher"  %></p>
+              <p><%= link_to "Lesson: #{lesson.name}", skill_path(lesson.skill)%></p>
+              <p><%= "Date: #{lesson.date}" %></p>
+               <%= link_to "Add a review", new_lesson_review_path(lesson.id), class: "btn btn-info", id:'review-button', remote: true, method: :get %>
                   </div>
                 <% end %>
               <% end %>
