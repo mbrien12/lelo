@@ -9,7 +9,8 @@ class ApplicationController < ActionController::Base
   end
 
   def add_role_to_cookies
-    if devise.role?
-    If there's a role present, add it to the session
+    if params[:role].present?
+      session[:role] = params[:role]
+    end
   end
 end
