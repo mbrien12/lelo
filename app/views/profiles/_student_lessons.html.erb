@@ -75,9 +75,13 @@
                   <p><%= "#{lesson.teacher.name}, #{lesson.skill.name} teacher"  %></p>
                   <p><%= "Lesson: #{lesson.name}" %></p>
                   <p><%= "Date: #{lesson.date}" %></p>
-                  <%= link_to "Add a review", new_lesson_review_path(lesson.id), class: "btn btn-info", id:'review-button', remote: true, method: :get %>
-               </div>
-              <% end %>
+                  <% if lesson.skill.reviews.nil? %>
+                    <%= link_to "Add a review", new_lesson_review_path(lesson.id), class: "btn btn-info", id:'review-button', remote: true, method: :get %>
+                  <% else %>
+                    <p class="font-grey">Reviewed 👍</p>
+                  <% end %>
+                 </div>
+                <% end %>
               <% end %>
             </div>
           </div>
