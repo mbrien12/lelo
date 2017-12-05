@@ -1,3 +1,5 @@
+
+
 .profile-container{
   font-family: $body-font;
   font-weight: lighter;
@@ -26,15 +28,31 @@
 .teacher-skills{
   grid-column: 2 / 4;
   grid-row: 1 / 2;
-
 }
-
 
 
  #profile-btn{
     margin: 20px;
   }
 
+  .no-lessons {
+    background-color: white;
+    border-radius: 7px;
+    padding: 50px;
+
+    p {
+      margin-bottom: 20px;
+    }
+  }
+
+
+  //-----------------------------TEACHER PAYMENTS -------------------------------
+
+  .teacher-payments {
+    background-color: white;
+    padding: 20px;
+    border-radius: 7px;
+  }
 
   //-----------------------------REVIEWS -----------------------------------------
 
