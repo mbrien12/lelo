@@ -19,7 +19,7 @@ gem 'simple_form'
 gem 'bootstrap-datepicker-rails'
 gem 'uglifier'
 gem 'faker'
-gem 'httparty'
+gem 'social-share-button'
 
 gem "geocoder"
 gem "coffee-rails"
