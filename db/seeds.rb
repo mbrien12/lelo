@@ -22,6 +22,7 @@ googleAddresses = JSON.parse(read)
 puts 'parsed addresses'
 teachers = JSON.parse(open("db/random_teachers.json").read)['results']
 puts 'parsed teachers'
+photos = JSON.parse(open('db/uploaded_pics.json').read)
 
 
 googleAddresses.each_with_index do |address,i|
@@ -31,10 +32,9 @@ googleAddresses.each_with_index do |address,i|
     password: '123456',
     first_name: teacher['name']['first'],
     last_name: teacher['name']['last'],
-    remote_photo_url: teacher['picture']['large'],
     role: 'teacher')
-
   t.save
+  t.update_columns(photo: photos[i])
 
   skill_type = [0,1,2,3].sample
   skill_availability = ["Mon-Fri 8am to 12pm","Mon-Fri after 7pm", "Fri-Sun 8am to 6pm", "Mondays and Tuesdays after 6pm", "Wednesdays and Fridays all day","Weekdays only","Weekends only"].sample
