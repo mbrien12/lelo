@@ -81,12 +81,14 @@
                   <p><%= "Date: #{lesson.date}" %></p>
 
                   <% unless lesson.skill.reviews.where(student_id: current_user.id).any?  %>
-                    <%= link_to "Add a review", new_lesson_review_path(lesson.id), class: "btn btn-info", id:'review-button', remote: true, method: :get %>
+                    <%= link_to "Add a review", new_lesson_review_path(lesson.id), class: "btn btn-info", id: "review-button-#{lesson.id}", remote: true, method: :get %>
                     <% end %>
                     </div>
-                    <div id="review-container"></div>
                 <% end %>
               <% end %>
+                   <div id="review-container" >
+
+                   </div>
             </div>
           </div>
       </div>
