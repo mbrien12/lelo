@@ -34,6 +34,7 @@ class ProfilesController < ApplicationController
       @lesson = lesson
     end
 
+
     if !@lesson.nil?
       @response = open(
       "https://api.meetup.com/find/groups?&sign=true&photo-host=public&lon=#{@lesson.skill.longitude}&text=#{@lesson.skill.name}&radius=5&lat=#{@lesson.skill.latitude}&page=6&key=#{ENV['MEETUP_KEY']}")

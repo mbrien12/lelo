@@ -72,14 +72,20 @@
         <div class="card-container-lesson">
           <div class="activity">
             <% @lessons.each do |lesson|%>
-            <% if lesson.status == "completed"%>
-            <div class="lesson-card-profile", >
-              <%= image_tag small_user_photo(lesson.teacher), class: "student-photo"%>
-              <p><%= "#{lesson.teacher.name}, #{lesson.skill.name} teacher"  %></p>
-              <p><%= link_to "Lesson: #{lesson.name}", skill_path(lesson.skill)%></p>
-              <p><%= "Date: #{lesson.date}" %></p>
-               <%= link_to "Add a review", new_lesson_review_path(lesson.id), class: "btn btn-info", id:'review-button', remote: true, method: :get %>
-                  </div>
+
+
+            <% if lesson.status == "completed" %>
+                <div class="lesson-card-profile", >
+                  <%= image_tag small_user_photo(lesson.teacher), id: "student-photo"%>
+                  <p><%= "#{lesson.teacher.name}, #{lesson.skill.name} teacher"  %></p>
+                  <p><%= link_to "Lesson: #{lesson.name}", skill_path(lesson.skill)%></p>
+                  <p><%= "Date: #{lesson.date}" %></p>
+
+                  <% unless lesson.skill.reviews.where(student_id: current_user.id).any?  %>
+                    <%= link_to "Add a review", new_lesson_review_path(lesson.id), class: "btn btn-info", id:'review-button', remote: true, method: :get %>
+                    <% end %>
+                    </div>
+
                 <% end %>
               <% end %>
             </div>

@@ -20,6 +20,7 @@ class ReviewsController < ApplicationController
 
     if @review.save
       redirect_to profile_path(current_user), notice: 'Review successfully submitted'
+
     else
       render 'profiles/show', id: current_user.id
     end
