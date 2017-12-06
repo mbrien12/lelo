@@ -1,12 +1,8 @@
 
+<% content_for :meta_title, "#{@skill.name} | LEALO"%>
 
-<!-- <div class="banner-wide" style="background-image: url('https://source.unsplash.com/1600x900/?#{@skill.name');" >
-</div>
- -->
 <div class="banner-wide" style='background-image: url("https://source.unsplash.com/1600x900/?<%= @skill.name %>");'>
-
 </div>
-
 
 <div class="skill-show-page">
   <div class="teacher-skill-show-container">
@@ -16,6 +12,11 @@
 
   <div class="skill-show-container">
       <h1><%= "Learn #{@skill.name} with #{@skill.teacher.first_name} " %></h1>
+
+      <div class="social-share">
+        <p> Share with a friend </p>
+         <%= social_share_button_tag("Check out this lesson on #{@skill.name} from #{@skill.teacher.first_name}") %>
+      </div>
 
       <ul class="nav nav-tabs  teacher-details">
         <li class="active"><a data-toggle="tab" href="#details">Details</a></li>
@@ -53,6 +54,7 @@
         </div>
       </div>
        <%= link_to "Get in touch with #{@skill.teacher.first_name}", '#', class: "btn btn-default", id: "btn-space" %>
+
        <%= render 'messages/new-message', target_user_id: @skill.teacher.id, lesson_id: nil %>
 
   <% content_for(:after_js) do %>
