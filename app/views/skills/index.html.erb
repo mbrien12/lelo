@@ -23,12 +23,12 @@
 
 
 
-
-<div id="map" ></div>
-<div id="list"></div>
-<%= render 'skill-list', skills: @skills %>
+<div class="list-map-wrapper">
+  <div id="map" ></div>
+  <div id="list"></div>
+    <%= render 'skill-list', skills: @skills %>
+  </div>
 </div>
-
 
 
 <% content_for(:after_js) do %>
