@@ -1,7 +1,7 @@
-
+<div class="profile-body">
 <div class="profile-container">
   <div class="user-profile-info-box">
-    <h1><%= @user.name%></h1>
+    <h3><%= @user.name%></h3>
     <%= image_tag photo_url(@user), id: "profile-photo"%>
     <% if @user.bio == "" %>
     <p>No bio yet, tell us about yourself!</p>
@@ -22,7 +22,7 @@
     <% end %>
 
      <% if current_user.role == "teacher" %>
-    <%= link_to "Add A New Skill", new_skill_path, class: "btn btn-info", id: "profile-btn"%>
+    <%= link_to "Add A New Skill", new_skill_path, class: "btn btn-primary", id: "profile-btn"%>
     <% end %>
 
 
@@ -40,12 +40,13 @@
     <% if current_user.role == "teacher" %>
     <%= render 'teacher_skills' %>
     <% else %>
-    <%= render 'student_skills' %>
+      <%if @unique_skills.any? %>
+        <%= render 'student_skills' %>
+      <% end %>
     <% end %>
-
   </div>
 </div>
-
+</div>
     <% content_for(:after_js) do %>
    <script>
       $(document).ready(function() {

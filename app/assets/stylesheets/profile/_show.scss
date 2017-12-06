@@ -1,33 +1,43 @@
 
+.profile-body{
+  background-color: white;
+}
 
 .profile-container{
   font-family: $body-font;
   font-weight: lighter;
   display: grid;
-  margin: 80px;
   min-height: 60vh;
+  padding-top: 30px;
 }
 
 .user-profile-info-box{
   grid-column: 1 / 2;
-  grid-row: 1 / 3;
+  grid-row: 1 / 4;
+  border: 1px solid white;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 #profile-photo{
   border-radius: 50%;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
   margin: 25px;
 }
 
 .user-profile-lessons{
   margin-top: 25px;
+  margin-left: 17px;
   grid-column: 2 / 4;
   grid-row: 2 / 4;
-}
+  margin-bottom: 45px;
+
 
 .teacher-skills{
   grid-column: 2 / 4;
   grid-row: 1 / 2;
+  margin-left: 15px;
 }
 
 
@@ -39,6 +49,7 @@
     background-color: white;
     border-radius: 7px;
     padding: 50px;
+  }
 
     p {
       margin-bottom: 20px;
@@ -84,8 +95,8 @@
 
 .meetup-cards-container {
   display: grid;
-  grid-template-columns: 250px 250px 250px;
-  grid-template-rows: 250px 250px 250px;
+  grid-template-columns: 220px 220px 220px;
+  grid-template-rows: 220px 220px 220px;
   grid-column-gap: 30px;
   grid-row-gap: 150px;
   margin-top: 40px;
@@ -101,7 +112,6 @@
     font-size: 18px;
     font-weight: bold;
     padding: 20px;
-
   }
 }
 
@@ -117,3 +127,9 @@
   color: gray;
   font-size: 15px;
 }
+
+ .blue-heading{
+    color: $blue;
+    text-shadow: .5px .5px .5px rgba(0,0,0,0.2);
+    font-size: 27px;
+  }
