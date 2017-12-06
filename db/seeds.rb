@@ -8,8 +8,8 @@ puts 'Messages Cleaned'
 Lesson.destroy_all
 puts 'Lessons Cleaned'
 Skill.destroy_all
-puts 'Messages Cleaned'
-User.destroy_all
+puts 'Skills Cleaned'
+User.delete_all
 puts 'Users Cleaned'
 
 
