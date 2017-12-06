@@ -1,9 +1,12 @@
 
-<h4 class = "blue-heading">Find a learning buddy near you...</h4>
+<h4>Find a learning buddy near you...</h4>
 
 <p>Explore local meetups related to your lessons to help you take your learning further.</p>
 
 <div class="meetup-cards-container">
+  <%= json %>
+  <%= url  %>
+  <%= @lesson.name %>
   <%json.each do |group| %>
     <%= link_to(group['link'], target: :_blank )do %>
       <div class="meetup-card" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.2)), url(<%= meetup_image(group) %>);">

@@ -30,12 +30,14 @@ class ProfilesController < ApplicationController
 
     # Meetup API call to get related topics and location for learners
 
+
     @lessons.each do |lesson|
       @lesson = lesson
     end
 
 
     if !@lesson.nil?
+      @url = "https://api.meetup.com/find/groups?&sign=true&photo-host=public&lon=#{@lesson.skill.longitude}&text=#{@lesson.skill.name}&radius=5&lat=#{@lesson.skill.latitude}&page=6&key=#{ENV['MEETUP_KEY']}"
       @response = open(
       "https://api.meetup.com/find/groups?&sign=true&photo-host=public&lon=#{@lesson.skill.longitude}&text=#{@lesson.skill.name}&radius=5&lat=#{@lesson.skill.latitude}&page=6&key=#{ENV['MEETUP_KEY']}")
       @json = JSON.parse(@response.read)

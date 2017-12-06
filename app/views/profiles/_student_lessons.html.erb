@@ -1,4 +1,4 @@
-<h4 class = "blue-heading">Lessons</h4>
+<h4>Lessons</h4>
 
 <% if @lessons.empty? %>
 <div class="no-lessons">
@@ -100,7 +100,7 @@
 
     <div id="meetup-container">
        <% if !@lesson.nil? %>
-        <%= render 'meetup-content', json: @json %>
+        <%= render 'meetup-content', json: @json, url: @url %>
       <% end %>
     </div>
 

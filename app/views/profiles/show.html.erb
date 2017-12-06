@@ -1,10 +1,22 @@
 
 <% content_for :meta_title, "My Profile | LEALO" %>
+
+ <div class="profile-banner">
+      <%= image_tag photo_url(@user), id: "profile-photo"%>
+  <div class="profile-banner-text">
+  <h1>Your account</h1>
+   <h3><%= @user.name%></h3>
+   </div>
+  </div>
+
+
 <div class="profile-body">
 <div class="profile-container">
   <div class="user-profile-info-box">
-    <h3><%= @user.name%></h3>
-    <%= image_tag photo_url(@user), id: "profile-photo"%>
+
+
+
+
     <% if @user.bio == "" %>
     <p>No bio yet, tell us about yourself!</p>
     <% else %>
