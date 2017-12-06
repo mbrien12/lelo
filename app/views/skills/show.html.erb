@@ -8,6 +8,11 @@
   <div class="skill-show-container">
       <h1><%= "Learn #{@skill.name} with #{@skill.teacher.first_name} " %></h1>
 
+      <div class="social-share">
+        <p> Share with a friend </p>
+         <%= social_share_button_tag("Check out this lesson on #{@skill.name} from #{@skill.teacher.first_name}") %>
+      </div>
+
       <ul class="nav nav-tabs  teacher-details">
         <li class="active"><a data-toggle="tab" href="#details">Details</a></li>
         <li><a data-toggle="tab" href="#bio">Experience in <%= @skill.name %></a></li>
@@ -44,6 +49,7 @@
         </div>
       </div>
        <%= link_to "Get in touch with #{@skill.teacher.first_name}", '#', class: "btn btn-default", id: "btn-space" %>
+
        <%= render 'messages/new-message', target_user_id: @skill.teacher.id, lesson_id: nil %>
 
   <% content_for(:after_js) do %>
