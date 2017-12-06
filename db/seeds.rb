@@ -30,8 +30,8 @@ googleAddresses.each_with_index do |address,i|
   t = User.new(
     email: teacher['email'],
     password: '123456',
-    first_name: teacher['name']['first'],
-    last_name: teacher['name']['last'],
+    first_name: teacher['name']['first'].capitalize,
+    last_name: teacher['name']['last'].capitalize,
     role: 'teacher')
   t.save
   t.update_columns(photo: photos[i])
