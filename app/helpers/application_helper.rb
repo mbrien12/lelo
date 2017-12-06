@@ -22,9 +22,10 @@ module ApplicationHelper
     else
         'http://cdn.embed.ly/providers/logos/meetup.png'
     end
-
   end
 
-
+  def title(text)
+    content_for :title, text
+  end
 end
 
