@@ -70,3 +70,4 @@ googleAddresses.each_with_index do |address,i|
     longitude: address['longitude'])
   puts i
 end
+
