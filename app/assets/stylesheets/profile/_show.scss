@@ -68,9 +68,11 @@
   //-----------------------------REVIEWS -----------------------------------------
 
 #review-container{
-  margin-top: 100px;
-  h4 {
+  // margin-top: 100px;
+  margin-left: 50px;
+  h5 {
     margin-bottom: 20px;
+    margin-top: 20px;
   }
 }
 
@@ -84,10 +86,15 @@
   margin: 10px;
 }
 
+.hide {
+  display: none;
+}
+
 
   //-----------------------------MEETUP CARDS -----------------------------------------
 
 #meetup-container {
+  margin-top: 100px;
   p {
     margin-bottom: 50px;
   }

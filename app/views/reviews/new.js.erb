@@ -1,6 +1,20 @@
 
-  const reviewContainer = document.getElementById("review-container");
+const reviewContainer = document.getElementById("review-container");
+let reviewButton = document.getElementById("review-button-<%= @lesson.id.to_s %>")
 
-  reviewContainer.innerHTML = "<%= j render 'profiles/reviews-form', skill: @lesson.skill, review: @review %>"
+reviewContainer.innerHTML = "<%= j render 'profiles/reviews-form', skill: @lesson.skill, review: @review %>"
+
+const hideReview = (event) => {
+  event.preventDefault()
+  reviewContainer.classList.toggle("hidden");
+}
+
+$("#review-button-<%= @lesson.id.to_s %>").replaceWith("<a href='#' class='btn btn-info' id='review-button-<%= @lesson.id.to_s %>'>Add a review</a>");
+reviewButton = document.getElementById("review-button-<%= @lesson.id.to_s %>")
+
+reviewButton.addEventListener('click', hideReview)
+
+
+
 
 

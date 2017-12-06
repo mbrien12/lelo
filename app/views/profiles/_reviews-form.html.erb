@@ -1,6 +1,6 @@
 
-<div class="reviews-form">
-  <h4>Leave a review for <%= skill.teacher.name %> and their skills in teaching <%= skill.name %></h4>
+<div class="reviews-form user-messages new-message ">
+  <h5>Leave a review for <%= skill.teacher.name %> and their skills in teaching <%= skill.name %></h5>
 
   <%= simple_form_for([ skill, review ]) do |form| %>
     <%= form.input :comment, as: :text %>
