@@ -4,7 +4,7 @@
 <div class="wrapper-white">
 <div class="container">
   <h1 class="text-center">Find a local teacher</h1>
-   <form action=<%= skills_path %> method='get', class="form-inline text-center search-form">
+   <form action=<%= "#{skills_path}" %> method='get', class="form-inline text-center search-form">
       <input name="skill" id="skill" class="form-control search" placeholder="I am learning..." >
       <input name="location" id="location" class="form-control search" placeholder="Where?">
      <input type="submit" id="search" value="Search" class="btn btn-primary">
@@ -25,12 +25,12 @@
 
 
 
-
-<div id="map" style="width: 100%; height: 400px;"></div>
-<div id="list"></div>
-<%= render 'skill-list', skills: @skills %>
+<div class="list-map-wrapper">
+  <div id="map" ></div>
+  <div id="list"></div>
+    <%= render 'skill-list', skills: @skills %>
+  </div>
 </div>
-
 
 
 <% content_for(:after_js) do %>
@@ -58,6 +58,7 @@
     const list = document.getElementById('list');
 
     const renderList = (event) => {
+      event.preventDefault();
       // document.getElementById("list").innerHTML = '<%= j render "skill-list",skills: @skills %>';
       map.style.display = "none";
       list.style.display = "block";
@@ -66,6 +67,7 @@
       }
 
     const showMap = (event) => {
+      event.preventDefault();
       map.style.display = "block";
       list.style.display = "none";
       mapToggle.classList.remove("inactive");
@@ -87,6 +89,12 @@
 
       searchSubmit.addEventListener('click', showSearchMessage);
 
+      <% if (params[:location].present? || params[:skill].present?) %>
+          var target = $('#search');
+          $('html, body').stop().animate({
+              scrollTop: target.offset().top
+          }, 400);
+      <% end %>
   </script>
 <% end %>
 

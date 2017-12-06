@@ -18,3 +18,18 @@
 @import "skills/index";
 @import "messages/index";
 @import "profile/index";
+
+
+html, body {
+  height: 100%;
+  background-color: white;
+}
+
+.page-wrap {
+  min-height: 100%;
+}
+
+.page-wrap:after {
+  content: "";
+  display: block;
+}

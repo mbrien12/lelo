@@ -1,23 +1,23 @@
-<br>
-<br>
-<h1 class="text-center">New Message</h1>
-<br>
-<br>
-<div style="margin:0 50px;">
-  <div class="user-messages">
-    <%= simple_form_for(@message) do |f| %>
-      <%= f.error_notification %>
+<div style="background-color: white" >
+  <br>
+  <h1 class="text-center">New Message</h1>
+  <br>
+  <div style="margin:0 50px;">
+    <div class="user-messages">
+      <%= simple_form_for(@message) do |f| %>
+        <%= f.error_notification %>
 
-      <div class="form-inputs">
-        <%= f.association :receiver, collection: @users, label_method: :name, label: "To:" %>
-        <%= f.input :message_text %>
-      </div>
+        <div class="form-inputs">
+          <%= f.association :receiver, collection: @users, label_method: :name, label: "To:" %>
+          <%= f.input :message_text %>
+        </div>
 
-      <div class="form-actions">
-        <%= f.button :submit %>
-      </div>
-    <% end %>
+        <div class="form-actions">
+          <%= f.button :submit %>
+        </div>
+      <% end %>
+    </div>
   </div>
+  <br>
+  <br>
 </div>
-<br>
-<br>
