@@ -3,27 +3,35 @@
 
 <p>Explore local meetups related to your lessons to help you take your learning further.</p>
 
-<div class="meetup-cards-container">
+<div class="meetup-cards-container hideContent">
   <% responses.each do |json| %>
-  <%= json[0] %>
-    <%json.each do |group| %>
-      <%= link_to(group['link'], target: :_blank )do %>
-        <div class="meetup-card" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.2)), url(<%= meetup_image(group) %>);">
-            <p><%= group['name'] %></p>
-        </div>
-        <div class="meetup-events">
-           <% if !group['next_event'].nil? %>
-            <% time = (group['next_event']['time'].to_f / 1000).to_s %>
-             <p><strong>Next event  <%= Date.strptime(time, '%s').strftime("%m-%d-%y") %></strong>
-              <br>
-              <%= group['next_event']['name'] %></p>
+  <% i = 0 %>
+    <%json.each_with_index do |group| %>
+      <% if !group['key_photo'].nil? %>
+        <% i += 1 %>
+        <%= link_to(group['link'], target: :_blank )do %>
+          <div class="meetup-card" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.2)), url(<%= meetup_image(group) %>);">
+              <p><%= group['name'] %></p>
+          </div>
+          <div class="meetup-events">
+             <% if !group['next_event'].nil? %>
+              <% time = (group['next_event']['time'].to_f / 1000).to_s %>
+               <p><strong>Next event  <%= Date.strptime(time, '%s').strftime("%m-%d-%y") %></strong>
+                <br>
+                <%= group['next_event']['name'] %></p>
 
-            <% else %>
-            <p class="font-grey">No upcoming events</p>
-          <% end %>
-        </div>
+              <% else %>
+              <p class="font-grey">No upcoming events</p>
+            <% end %>
+          </div>
+        <% end %>
+
       <% end %>
+      <% break if i > 5 %>
     <% end %>
   <% end %>
-</div>
+  </div>
+  <div class="show-more">
+    <%= link_to "Show more", '#', class:"btn btn-default" %>
+  </div>
 

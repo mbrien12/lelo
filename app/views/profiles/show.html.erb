@@ -62,5 +62,20 @@
         });
       });
 
+    $(".show-more a").on("click", (event) => {
+      event.preventDefault()
+      var $this = $(event.target);
+      var meetup_div = $(".meetup-cards-container");
+      var linkText = $this.text();
+
+      if(linkText === "Show more"){
+          linkText = "Show less";
+          meetup_div.removeClass("hideContent").addClass("showContent")
+      } else {
+          linkText = "Show more";
+          meetup_div.removeClass("showContent").addClass("hideContent")
+      }
+      $this.text(linkText);
+    });
     </script>
     <% end %>

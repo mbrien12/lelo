@@ -136,3 +136,18 @@
   font-size: 15px;
 }
 
+.hideContent {
+    overflow: hidden;
+    height: 650px;
+}
+
+.showContent {
+    height: auto;
+}
+
+.show-more {
+  display: flex;
+  .btn {
+    margin-top: 20px;
+  }
+}
