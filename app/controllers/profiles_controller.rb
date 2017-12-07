@@ -23,7 +23,7 @@ class ProfilesController < ApplicationController
     @total_price = 0
     @lessons.each do |lesson|
       if lesson.status == "completed"
-        @total_price += lesson.price_cents
+        @total_price += lesson.price
       end
     end
 
