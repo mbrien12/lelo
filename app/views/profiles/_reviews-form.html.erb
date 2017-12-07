@@ -4,7 +4,7 @@
 
   <%= simple_form_for([ skill, review ]) do |form| %>
     <%= form.input :comment, as: :text %>
-    <%= form.input :rating, input_html: { id: 'input-id',  class: 'rating',  'data-size' => 'xs' }%>
+    <%= form.input :rating, input_html: { id: 'input-id',  class: 'rating',  'data-size' => 'xs', 'data-show-clear' => 'false', 'data-show-caption'=>'false' }%>
 
 
 
