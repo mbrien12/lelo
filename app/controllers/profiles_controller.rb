@@ -37,7 +37,7 @@ class ProfilesController < ApplicationController
 
     if !@lesson.nil?
       @response = open(
-      "https://api.meetup.com/find/groups?&sign=true&photo-host=public&lon=#{@lesson.skill.longitude}&text=#{@lesson.skill.name}&radius=5&lat=#{@lesson.skill.latitude}&page=6&key=#{ENV['MEETUP_KEY']}")
+      "https://api.meetup.com/find/groups?&sign=true&photo-host=public&lon=#{@lesson.skill.longitude}&text=#{@lesson.skill.category}&radius=5&lat=#{@lesson.skill.latitude}&page=6&key=#{ENV['MEETUP_KEY']}")
       @json = JSON.parse(@response.read)
     end
 
