@@ -3,19 +3,26 @@
   <div class="skill-list-card">
 
     <div class=list-card-left>
-      <%= image_tag teacher_photo(skill)  %>
+      <%= image_tag teacher_photo(skill), class: "student-photo"  %>
       <p><strong><%= skill.category %></strong></p>
       <p class="font-small">$<%= skill.price %>/hour</p>
        <% "#{skill.average_rating}".to_i.times do %>
               <i class="fa fa-star" aria-hidden="true"></i>
               <% end %>
+        </div>
+        <div class="list-card-right">
+          <p> Hi I'm <%= skill.teacher.first_name.capitalize %></p>
+          <p> I teach <%= skill.name %></p>
+          <p class="font-small"><%= skill.teacher.bio %></p>
+          <%= link_to "Learn with me",skill_path(skill), class: "btn btn-primary"  %>
+        </div>
+
+
+      <div class="card-location">
+        <%= image_tag('map.png',class: "map-icon") %>
+        <p><%= "I'm in #{skill.location}" %></p>
+      </div>
+
     </div>
-    <div class="list-card-right">
-      <p> Hi I'm <%= skill.teacher.first_name.capitalize %></p>
-      <p> I teach <%= skill.name %></p>
-      <p class="font-small"><%= skill.teacher.bio %></p>
-      <%= link_to "Learn with me",skill_path(skill), class: "btn btn-primary"  %>
-    </div>
-  </div>
   <% end %>
 </div>
