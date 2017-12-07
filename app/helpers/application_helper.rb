@@ -1,20 +1,23 @@
 module ApplicationHelper
   def avatar_url
-    current_user.photo_url(:thumb) || "#{current_user.facebook_picture_url}&height=50&width=50" || "http://placehold.it/30x30"
+    return "#{current_user.facebook_picture_url}&height=50&width=50" if current_user.facebook_picture_url
+    current_user.photo_url(:thumb) || "http://placehold.it/30x30"
   end
 
   def photo_url(user)
-    user.photo_url(:profile) || "#{user.facebook_picture_url}&height=200&width=200" || "http://placehold.it/30x30"
+    return "#{user.facebook_picture_url}&height=200&width=200" if user.facebook_picture_url
+    user.photo_url(:profile) || "http://placehold.it/30x30"
   end
 
   def teacher_photo(skill)
+    return "#{skill.teacher.facebook_picture_url}&height=50&width=50" if skill.teacher.facebook_picture_url
     skill.teacher.photo.url(:thumb) ||
-    "#{skill.teacher.facebook_picture_url}&height=50&width=50" ||
     "http://placehold.it/30x30"
   end
 
   def small_user_photo(user)
-    user.photo.url(:thumb) || "#{user.facebook_picture_url}&height=50&width=50" || "http://placehold.it/30x30"
+    return "#{user.facebook_picture_url}&height=50&width=50" if user.facebook_picture_url
+    user.photo.url(:thumb) || "http://placehold.it/30x30"
   end
 
   def meetup_image(group)

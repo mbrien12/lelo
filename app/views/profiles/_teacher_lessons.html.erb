@@ -1,16 +1,17 @@
 <h4 class= "blue-heading down-heading">My Lessons</h4>
-<ul class="nav nav-tabs">
-  <li><a data-toggle="tab" href="#pending">Requested Lessons</a></li>
-  <li><a data-toggle="tab" href="#confirmed">Upcoming</a></li>
-  <li><a data-toggle="tab" href="#completed">Completed</a></li>
-</ul>
+<% if @lessons.empty? %>
+<%= link_to "No bookings yet, add more skills to your profile to find more students", new_skill_path%>
+<% else %>
+  <ul class="nav nav-tabs">
+    <li><a data-toggle="tab" href="#pending">Requested Lessons</a></li>
+    <li><a data-toggle="tab" href="#confirmed">Upcoming</a></li>
+    <li><a data-toggle="tab" href="#completed">Completed</a></li>
+  </ul>
+
 <div class="tab-content">
   <div id="pending" class="tab-pane fade in active">
     <div class="tab-content">
       <div role="tabpanel" class="tab-pane active no-border" id="status-lesson">
-        <% if @lessons.empty? %>
-          <p>No bookings yet </p>
-        <% else %>
           <div class="card-container-lesson">
             <% @lessons.each do |lesson|%>
               <% if lesson.status == "pending"%>
@@ -26,16 +27,12 @@
               <% end %>
             <% end %>
           </div>
-        <% end %>
       </div>
     </div>
   </div>
   <div id="confirmed" class="tab-pane fade in tab-item">
     <div class="tab-content">
       <div role="tabpanel" class="tab-pane active no-border" id="status-lesson">
-        <% if @lessons.empty? %>
-          <p>No bookings yet </p>
-        <% else %>
           <div class="card-container-lesson">
             <% @lessons.each do |lesson|%>
               <% if lesson.status == "confirmed"%>
@@ -51,16 +48,12 @@
               <% end %>
             <% end %>
           </div>
-        <% end %>
       </div>
     </div>
   </div>
   <div id="completed" class="tab-pane fade in tab-item">
     <div class="tab-content">
       <div role="tabpanel" class="tab-pane active no-border" id="status-lesson">
-        <% if @lessons.empty? %>
-          <p>No bookings yet </p>
-        <% else %>
           <div class="card-container-lesson">
           <% @lessons.each do |lesson|%>
             <% if lesson.status == "completed"%>
@@ -74,8 +67,8 @@
                 <% end %>
               <% end %>
           </div>
-        <% end %>
       </div>
     </div>
   </div>
 </div>
+<% end %>

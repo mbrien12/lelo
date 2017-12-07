@@ -62,13 +62,12 @@
   padding-bottom: 20px;
 }
 
-.list-card-right {
-  width: 50%;
-}
+
 
 .skill-list-card {
-  display: flex;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: repeat(3, [col-start] 1fr);
+  grid-gap: 30px;
   background-color: #F4F4F4;
   margin-right: 250px;
   margin-left: 250px;
@@ -81,6 +80,12 @@
 .end {
   margin-right: auto;
   margin-left: 200px;
+}
+
+.card-location {
+  p {
+    font-size: 12px;
+  }
 }
 
 // -----------------------------JS CLASSES FOR TITLE-----------------------------------
@@ -96,4 +101,8 @@
 
 .list-map-wrapper {
   min-height: calc(100vh - 170px);
+}
+
+.pointer {
+  cursor: pointer;
 }

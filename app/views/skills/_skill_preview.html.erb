@@ -1,7 +1,7 @@
 
 <div class="map-preview">
   <div class="preview-left">
-    <%= image_tag teacher_photo(skill)  %>
+    <%= image_tag teacher_photo(skill), class: "student-photo"  %>
     <p><strong><%= skill.category %></strong></p>
     <p class="font-small">$<%= skill.price %>/hour</p>
     <% "#{skill.average_rating}".to_i.times do %>
