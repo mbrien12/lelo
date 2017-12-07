@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :messages, foreign_key: :sender_id
   has_many :messages, foreign_key: :receiver_id
   validates :role, inclusion: { in: ["teacher", "student"] }
+  validates :email, :first_name, :last_name, presence: true
   mount_uploader :photo, PhotoUploader
 
 
