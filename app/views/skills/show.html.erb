@@ -7,7 +7,12 @@
 <div class="skill-show-page">
   <div class="teacher-skill-show-container">
     <%= image_tag photo_url(@skill.teacher), id: "skill-photo"%>
-    <%= render 'lessons/lesson-booking-form' %>
+    <% if user_signed_in? %>
+      <%= render 'lessons/lesson-booking-form' %>
+    <% else %>
+      <h5>Log in to book a lesson!</h5>
+      <%= link_to "Log in", new_user_session_path, class: "btn btn-default" %>
+    <% end %>
   </div>
 
   <div class="skill-show-container">
