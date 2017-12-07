@@ -5,6 +5,7 @@
 
 <div class="meetup-cards-container">
   <% responses.each do |json| %>
+  <%= json[0] %>
     <%json.each do |group| %>
       <%= link_to(group['link'], target: :_blank )do %>
         <div class="meetup-card" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.2)), url(<%= meetup_image(group) %>);">
