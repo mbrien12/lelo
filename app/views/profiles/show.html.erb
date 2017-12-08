@@ -31,6 +31,7 @@
   </div>
 
   <div class="user-profile-lessons">
+
     <% if current_user.role == "teacher" %>
     <%= render 'teacher_lessons' %>
     <% else %>
