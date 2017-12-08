@@ -45,6 +45,18 @@ width: 100px;
   margin-bottom: 50px;
 }
 
+
+@media screen and (max-width: 780px){
+  .feature-title {
+    font-size: 25px;
+  }
+
+  .image-label {
+    font-size: 15px;
+  }
+}
+
+
 // ----------------- SOCIAL PROOF ----------------------
 
 .social-proof, .benefits {
@@ -57,4 +69,10 @@ width: 100px;
 
 .customer-text {
   margin-bottom: 50px;
+}
+
+@media screen and (max-width: 780px){
+  .customer-text {
+    font-size: 15px;
+  }
 }
