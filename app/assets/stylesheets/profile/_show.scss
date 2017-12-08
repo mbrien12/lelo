@@ -7,7 +7,7 @@
   font-family: $body-font;
   font-weight: lighter;
   display: grid;
-  margin: 80px;
+  margin: 80px 80px 0 30px;
   min-height: 60vh;
   padding-top: 30px;
 }
@@ -145,3 +145,34 @@
   font-size: 15px;
 }
 
+@media screen and (max-width: 780px){
+
+  .profile-container {
+    margin: 20px;
+    padding: 0px;
+  }
+
+  .user-profile-info-box {
+    grid-column: 1 / 2;
+    grid-row: 1 / span 1;
+  }
+
+  .teacher-skills {
+    grid-column: 1 / 2;
+    grid-row: 2 / span 1;
+    h4 {
+      text-align: center;
+    }
+  }
+
+  .user-profile-lessons {
+    grid-column: 1 / 2;
+    grid-row: 3 / span 1;
+  }
+
+  .meetup-container {
+    grid-column: 1 / 2;
+    grid-row: 4 / span 1;
+  }
+
+}
