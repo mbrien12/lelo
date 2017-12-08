@@ -39,3 +39,32 @@
   font-weight: lighter;
   margin: 175px;
 }
+
+@media screen and (max-width: 780px){
+.new-skill-container {
+    width: 80%;
+  }
+
+  .new-skill-header {
+    width: 90%;
+
+    h1{
+      font-size: 2em;
+    }
+
+    h2 {
+      font-size: 1.5em;
+    }
+  }
+
+  .form-actions {
+    padding: 10px;
+  }
+
+  #new-skill-btn {
+    margin-left: 80px;
+
+  }
+}
+
+
