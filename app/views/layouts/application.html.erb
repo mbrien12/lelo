@@ -17,7 +17,7 @@
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
-    <% favicon_link_tag %>
+      <%= favicon_link_tag asset_path('favicon.ico'), :rel => 'icon', :type =>  'image/ico' %>
   </head>
   <body>
     <div class="page-wrap">
