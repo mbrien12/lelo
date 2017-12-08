@@ -8,10 +8,11 @@
   border-radius: 7px;
   box-shadow: 1px 1px 3px #888888;
   margin-bottom: 20px;
+  cursor: pointer;
 }
 
 
-.user-messages-deatils {
+.user-messages-details {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -41,8 +42,12 @@
 .messages-container {
   padding: 60px 250px 40px;
   h1 {
-    margin: 0;
+    margin: 30px;
   }
+}
+
+.message-button {
+  margin-left: 50px;
 }
 
 
@@ -59,5 +64,43 @@
 
 .new-message {
   margin-left: 0 !important;
+}
+
+@media screen and (max-width: 780px){
+
+  .messages-container {
+    width: 80%;
+    padding: 0;
+
+    h1 {
+      font-size: 2em;
+
+    }
+
+    p {
+      font-size: 12px;
+    }
+  }
+
+  .user-messages {
+    width: 100%;
+  }
+
+  .user-first-message {
+    font-size: 14px;
+  }
+
+  .message-avatar-div {
+    margin: 0;
+  }
+
+  .message-date-div {
+    display: none;
+  }
+
+  .message-button {
+    margin: 20px 0 30px 50px;
+  }
+
 }
 
