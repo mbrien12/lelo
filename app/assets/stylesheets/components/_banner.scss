@@ -53,4 +53,33 @@
 
 
 
+@media screen and (max-width: 780px){
+ .banner {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 50% 50%;
+    height: 80vh;
+
+    h1 {
+      font-size: 2em;
+    }
+
+    h3 {
+      font-size: 1em;
+    }
+
+    a {
+      font-size: 20px;
+    }
+  }
+
+  .banner-right {
+  margin: 0;
+}
+
+.feature-heading {
+  font-size: 1.5em;
+}
+}
+
 
