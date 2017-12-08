@@ -47,8 +47,8 @@ module ApplicationHelper
     meta_image.starts_with?("http") ? meta_image : image_url(meta_image)
   end
 
-  def favicon_link_tag
-    image_tag('favicon.ico')
-  end
+  # def favicon_link_tag
+  #   image_tag('favicon.ico')
+  # end
 end
 
