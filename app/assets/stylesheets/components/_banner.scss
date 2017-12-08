@@ -59,6 +59,7 @@
     grid-template-columns: 1fr;
     grid-template-rows: 50% 50%;
     height: 80vh;
+    padding: 50px;
 
     h1 {
       font-size: 2em;
@@ -71,6 +72,10 @@
     a {
       font-size: 20px;
     }
+  }
+
+  .banner-left {
+    margin-top: 100px;
   }
 
   .banner-right {
