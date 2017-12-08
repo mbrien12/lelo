@@ -99,8 +99,8 @@
 </div>
 
     <div id="meetup-container">
-       <% if !@lesson.nil? && !@json.nil? %>
-        <%= render 'meetup-content', json: @json %>
+       <% if !@lesson.nil? && !@responses.empty? %>
+        <%= render 'meetup-content', responses: @responses %>
       <% end %>
     </div>
 

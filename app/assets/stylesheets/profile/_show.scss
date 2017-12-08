@@ -145,3 +145,27 @@
   font-size: 15px;
 }
 
+.hideContent {
+    overflow: hidden;
+    height: 500px;
+}
+
+.showContent {
+    height: auto;
+}
+
+.show-more {
+  display: flex;
+  background: linear-gradient(to bottom, rgba(white,0) 0%,rgba(white,1) 75%);
+  margin-top: -60px;
+  z-index: 10;
+  position: relative;
+  .btn {
+    margin: 40px 0 0;
+  }
+}
+
+.show-more-button {
+border-radius: 20px;
+
+}
