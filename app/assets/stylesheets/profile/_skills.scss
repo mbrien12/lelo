@@ -57,3 +57,14 @@
 .down-heading{
   padding: 12px;
   }
+
+@media screen and (max-width: 780px){
+
+  .card-container-student {
+    display: grid;
+  }
+
+  .card-container-skill {
+    display: grid;
+  }
+}
