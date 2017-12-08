@@ -4,10 +4,11 @@
 
   <%= simple_form_for([ skill, review ]) do |form| %>
     <%= form.input :comment, as: :text %>
-    <%= form.input :rating,  as: :radio_buttons, collection: 1..5 %>
+    <%= form.input :rating, input_html: { id: 'input-id',  class: 'rating',  'data-size' => 'xs', 'data-show-clear' => 'false', 'data-show-caption'=>'false' }%>
+
+
+
     <%= form.button :submit %>
   <% end %>
 </div>
-
-
 

@@ -1,22 +1,21 @@
 
 <div class="banner">
-    <div class="banner-left">
-      <h1 id="change-text" class="fadeIn" >LEARN MORE</h1>
-
-    </div>
-    <div class="banner-right">
-      <h3>Learn and grow with a teacher in your community.</h3>
-      <%= link_to "Find a local teacher", skills_path, class: "hp-button btn btn-primary" %>
-    </div>
+  <div class="banner-left">
+    <h1 id="change-text" class="fadeIn" >LEARN MORE</h1>
+  </div>
+  <div class="banner-right">
+    <h3>Learn and grow with a teacher in your community.</h3>
+    <%= link_to "Find a local teacher", skills_path, class: "hp-button btn btn-primary" %>
   </div>
 </div>
+
 
 
 
 <% content_for(:after_js) do %>
   <script>
 
-  const text = ["LEARN LOCAL", "WITH LEALO"];
+  const text = ["LEARN LOCALLY", "WITH LEALO"];
   let counter = 0;
   const elem = document.getElementById("change-text");
   let intervalId = setInterval(change, 2000);
