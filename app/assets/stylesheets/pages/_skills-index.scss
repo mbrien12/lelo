@@ -66,15 +66,27 @@
 
 .skill-list-card {
   display: grid;
-  grid-template-columns: repeat(3, [col-start] 1fr);
-  grid-gap: 30px;
+  grid-template-columns: repeat(auto-fit, [col-start] 320px);
+  grid-gap: 2em;
   background-color: #F4F4F4;
-  margin-right: 250px;
-  margin-left: 250px;
-  padding: 50px;
+  margin-right: 6em;
+  margin-left: 6em;
+  padding: 1em;
+  align-items: center;
   border-radius: 7px;
   box-shadow: 1px 1px 3px #888888;
-  margin-bottom: 40px;
+  margin-bottom: 3em;
+  p{
+    font-size: .9em;
+  }
+}
+
+.list-card-left{
+  margin: auto;
+}
+
+.list-card-right{
+  margin: auto;
 }
 
 .end {
@@ -83,8 +95,9 @@
 }
 
 .card-location {
+  margin: auto;
   p {
-    font-size: 12px;
+    font-size: .8em;
   }
 }
 
