@@ -36,7 +36,7 @@ end
 
 
 group :development, :test do
-  gem 'pry-byebug'
+  gem 'rb-readline'
   gem 'pry-rails'
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '~> 3.0.5'
