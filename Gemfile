@@ -24,7 +24,7 @@ gem 'social-share-button'
 gem "geocoder"
 gem "coffee-rails"
 gem "gmaps4rails"
-gem 'carrierwave', '~> 0.11.2'
+gem 'carrierwave', '~> 1.3.2'
 gem 'cloudinary'
 gem 'money-rails'
 gem 'stripe'
